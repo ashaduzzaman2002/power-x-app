@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ForgotPass, Home, Profile, Signin, Signup } from "./screens";
+import { FastParity, ForgotPass, Home, Profile, Signin, Signup } from "./screens";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPass />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/fast-parity" element={<FastParity />} />
 
       </Routes>
     </>

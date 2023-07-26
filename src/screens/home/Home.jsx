@@ -26,7 +26,7 @@ const Home = () => {
             <img src={bettingBanner} alt="" />
           </div>
 
-          <div className="games">
+          <div onClick={() => navigate('/fast-parity')} className="games">
             <div className="game">
               <img src={rocket} alt="" />
               <p>Fast Parity</p>
