@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { signinSchema } from "../../validation/auth";
 import { AppContext } from "../../context/AppContext";
-import { dbObject } from "../../helper/constant";
+import { baseURL, dbObject } from "../../helper/constant";
+import axios from "axios";
 
 const initialValues = {
   phone: "",
@@ -19,13 +20,15 @@ const Signin = () => {
       initialValues: initialValues,
       validationSchema: signinSchema,
       onSubmit: async () => {
-        setUser(true)
-        // try {
-        //   const {data} = await dbObject.post('/power-x/apis/users/login.php', values)
-        // console.log(data)
-        // } catch (error) {
-        //   console.log(error)
-        // }
+        // setUser(true)
+        try {
+          const {data} = await axios.post(baseURL+'/power-x/apis/users/login.php', values)
+        console.log(data)
+        } catch (error) {
+          console.log(error)
+        }
+
+       
       },
     });
 
