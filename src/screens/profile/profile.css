@@ -1,27 +1,3 @@
-.app__top__nav {
-    align-items: center;
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.top__nav__cols {
-    color: #fff;
-    flex-basis: 33.33333%;
-}
-
-.top__nav__back__btn {
-    align-items: center;
-    display: flex;
-    font-size: 35px;
-    height: 50px;
-}
-
-.top__nav__title {
-    font-size: 18px;
-    font-weight: 700;
-}
 
 
 .user__details__section {

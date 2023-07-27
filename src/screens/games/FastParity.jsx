@@ -1,62 +1,79 @@
 import React, { useState } from "react";
 import "./game.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { goldCoin, silverCoin } from "../../assets";
+import { Header } from "../../components";
 
 const FastParity = () => {
   const navigate = useNavigate();
   const firstCardList = ["A", "B", "C", "D"];
   const [activeBtn, setActiveBtn] = useState("probability");
   const [activeBtn2, setActiveBtn2] = useState("OtherPlayers");
+
+  const location = useLocation();
+
   return (
     <div className="container">
-      {/* Top Navbar */}
-      <div class="app__top__nav">
-        <div class="top__nav__cols">
-          <div class="top__nav__back__btn" onClick={() => navigate("/")}>
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              stroke-width="0"
-              viewBox="0 0 512 512"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M216.4 163.7c5.1 5 5.1 13.3.1 18.4L155.8 243h231.3c7.1 0 12.9 5.8 12.9 13s-5.8 13-12.9 13H155.8l60.8 60.9c5 5.1 4.9 13.3-.1 18.4-5.1 5-13.2 5-18.3-.1l-82.4-83c-1.1-1.2-2-2.5-2.7-4.1-.7-1.6-1-3.3-1-5 0-3.4 1.3-6.6 3.7-9.1l82.4-83c4.9-5.2 13.1-5.3 18.2-.3z"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="top__nav__cols">
-          <center>
-            <div class="top__nav__title">Fast Parity</div>
-          </center>
-        </div>
-        <div class="top__nav__cols"></div>
-      </div>
-
+      <Header title={'Fast Parity'} />
       <div>
-        <div className="wallet-container d-flex justify-content-between align-items-center gap-5 mt-3">
-          <Link
-            className="btn  text-white rounded-pill w-50 fw-medium"
-            style={{
-              backgroundColor: "#fc940d",
-              boxShadow: "0 10px 20px -10px #fc940d",
-            }}
-            to={"/play-wallet"}
-          >
-            <i class="bi bi-trophy"></i> Wallet
-          </Link>
-          <Link
-            className="btn text-white rounded-pill w-50 fw-medium"
-            style={{
-              backgroundColor: "#00c282",
-              boxShadow: "0 10px 20px -10px #00c282",
-            }}
-            to={"/play-wallet"}
-          >
-            <i class="bi bi-wallet"></i> Wallet
-          </Link>
+        <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
+          <div className="parity-top flex-column align-items-center w-100 p-2 ">
+            <p>Win Wallet</p>
+            <div className="input-container d-flex mb-3 align-items-center gap-2 px-2 rounded">
+              <i class="bi bi-currency-rupee"></i>{" "}
+              <input className="p-1 w-100" type="text" placeholder="100" />
+            </div>
+
+            <button
+              className="btn text-white rounded-pill w-100 fw-medium"
+              style={{
+                backgroundColor: "#fc940d",
+                fontSize: 13
+              }}
+            >
+             Withdraw
+            </button>
+
+            <button
+              className="btn text-white rounded-pill w-100 fw-medium mt-2"
+              style={{
+                backgroundColor: "#00c282",
+                fontSize: 13
+              }}
+            >
+              Transfer
+            </button>
+          </div>
+
+          <div className="parity-top flex-column align-items-center w-100 p-2">
+            <p>Play Wallet</p>
+            <div className="input-container d-flex mb-3 align-items-center gap-2 px-2 rounded">
+              <i class="bi bi-currency-rupee"></i>{" "}
+              <input className="p-1 w-100" type="text" placeholder="100" />
+            </div>
+
+            <button
+              className="btn text-white rounded-pill w-100 fw-medium"
+              style={{
+                backgroundColor: "#fc940d",
+                fontSize: 13
+              }}
+              onClick={() => navigate('/recharge', { state: { from: location.pathname } })}
+            >
+              Recharge
+            </button>
+
+            <button
+              className="btn text-white rounded-pill w-100 fw-medium mt-2"
+              style={{
+                backgroundColor: "#00c282",
+                fontSize: 13
+              }}
+              onClick={() => navigate('/forward', { state: { from: location.pathname } })}
+            >
+              Forward
+            </button>
+          </div>
         </div>
 
         <div className="parity-top mt-4 px-4 py-2">
@@ -85,22 +102,22 @@ const FastParity = () => {
               style={{ width: "87%", marginTop: "0.3rem" }}
             />
           </div>
-
-
-          
         </div>
 
         <div className="prity-colors">
           <div className="p-3" style={{ backgroundColor: "#d72e2a" }}>
             <p className="m-0">Red</p>
+            <p className="m-0 border-top w-75 text-center">2X</p>
           </div>
 
           <div style={{ backgroundColor: "#388e3d" }}>
             <p className="m-0">green</p>
+            <p className="m-0 border-top w-75 text-center">3X</p>
           </div>
 
           <div style={{ backgroundColor: "#1976d3" }}>
             <p className="m-0">Blue</p>
+            <p className="m-0 border-top w-75 text-center">4X</p>
           </div>
         </div>
 
@@ -108,17 +125,22 @@ const FastParity = () => {
           {firstCardList.map((item, i) => (
             <div key={i}>
               <p className="m-0">{item}</p>
+              <p className="m-0 border-top w-50 text-center">{2 + i}X</p>
             </div>
           ))}
         </div>
-        
+
         <div className="d-flex justify-content-center">
-        <button className="btn text-white rounded-pill fw-medium mt-4 px-5 py-2" style={{
+          <button
+            className="btn text-white rounded-pill fw-medium mt-4 px-5 py-2"
+            style={{
               backgroundColor: "#00c282",
               boxShadow: "0 10px 20px -10px #00c282",
-            }}>Enter</button>
+            }}
+          >
+            Enter
+          </button>
         </div>
-        
 
         <div className="parity-btn">
           <button

@@ -4,6 +4,7 @@ import parity from './images/parity.svg'
 import dice from './images/dice.svg'
 import goldCoin from './images/gold.png'
 import silverCoin from './images/silverCoin.png'
+import emptyBox from './images/empty-box.png'
 
 export {
     rocket,
@@ -11,5 +12,6 @@ export {
     parity,
     dice,
     goldCoin,
-    silverCoin
+    silverCoin,
+    emptyBox
 }

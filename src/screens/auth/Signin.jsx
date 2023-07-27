@@ -21,12 +21,12 @@ const Signin = () => {
       validationSchema: signinSchema,
       onSubmit: async () => {
         setUser(true)
-        try {
-          const {data} = await axios.post(baseURL+'/power-x/apis/users/login.php', values)
-        console.log(data)
-        } catch (error) {
-          console.log(error)
-        }
+        // try {
+        //   const {data} = await axios.post(baseURL+'/power-x/apis/users/login.php', values)
+        // console.log(data)
+        // } catch (error) {
+        //   console.log(error)
+        // }
 
        
       },
