@@ -1,0 +1,10 @@
+.forward-modal {
+    border: 1px solid rgba(0, 255, 255, 0.239);
+    background: #1bb9c134;
+    border-radius: 10px;
+}
+
+.modal-btn-close {
+    background: none;
+    border: none;
+}

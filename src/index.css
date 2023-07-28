@@ -18,3 +18,10 @@ body {
   padding-top: 55px;
   transition: all 0.3s ease-in-out;
 }
+
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+}

@@ -27,6 +27,7 @@
 .continuous-tab {
   overflow-x: auto !important;
   margin-top: 1.5rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .scroll-container {
@@ -82,8 +83,6 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 0.5rem;
 }
-
-
 
 .parity-myorder td:first-child {
   text-align: left;
@@ -398,4 +397,129 @@ input:focus {
 .floating-btn button i {
   font-size: 2.5rem;
   color: #f5f5f5;
+}
+
+.probability {
+  transition: all 0.3s ease-in-out;
+}
+
+.start-box {
+  padding: 1rem;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px;
+  border: 1px solid rgba(0, 255, 255, 0.239);
+  background: #1bb9c134;
+  border-radius: 10px;
+}
+
+.points-div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.2rem;
+}
+
+.points-div h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.points-div button {
+  border: none;
+  padding: 0 1.5rem;
+  border-radius: 2rem;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #ffdcaa;
+  height: 50px;
+}
+
+.contract-point {
+  margin-top: 1rem;
+}
+
+.contract-point div {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1.1rem;
+}
+
+.contract-point button {
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  padding: 0.2rem 1rem;
+  border-radius: 1rem;
+  background: none;
+  color: #fff;
+}
+
+.contract-point-selected {
+  background-color: #fcaa79 !important;
+  color: black !important;
+}
+
+.start-number-outer {
+  margin-top: 1rem;
+}
+.start-number {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.start-number div {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.start-number button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.start-number p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.start-number div button:first-child {
+  background-color: #a1f3c3;
+}
+
+.start-number div button:last-child {
+  background-color: #fbfaba;
+}
+
+.delivery {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border: 1px solid #b09d71;
+  padding: 0.5rem 0.8rem;
+  border-radius: 1rem;
+}
+
+.delivery div p:first-child {
+  font-size: 15px;
+  color: #e1dfdf;
+  margin-bottom: 0.2rem;
+}
+
+.delivery div p:last-child {
+  font-size: 1.2rem;
 }
