@@ -31,7 +31,7 @@ const Recharge = () => {
         </p>
       </div>
 
-      <div className="mt-2 mb-5">
+      <div className="mt-2" style={{marginBottom: '100px'}}>
         <button
           onClick={() => navigate("/fast-parity")}
           className="w-100 mb-2 withdraw__btn"
