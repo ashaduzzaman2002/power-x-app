@@ -26,13 +26,13 @@ const Home = () => {
             <img src={bettingBanner} alt="" />
           </div>
 
-          <div onClick={() => navigate('/fast-parity')} className="games">
-            <div className="game">
+          <div  className="games">
+            <div onClick={() => navigate('/fast-parity')} className="game">
               <img src={rocket} alt="" />
               <p>Fast Parity</p>
             </div>
 
-            <div className="game">
+            <div onClick={() => navigate('/parity')} className="game">
               <img src={dice} />
               <p>Parity</p>
             </div>

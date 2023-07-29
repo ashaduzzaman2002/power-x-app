@@ -26,7 +26,7 @@ const Header = ({ title, path }) => {
             </svg>
           </div>
         </div>
-        <div class="top__nav__cols" style={{flexBasis: '40%'}}>
+        <div class="top__nav__cols" style={{flexBasis: '50%'}}>
           <center>
             <div class="top__nav__title">{title}</div>
           </center>

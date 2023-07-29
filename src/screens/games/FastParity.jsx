@@ -17,6 +17,7 @@ const FastParity = () => {
     <div className="container">
       <Header title={"Fast Parity"} />
 
+{/* Start */}
       <div
         class="modal fade"
         id="exampleModal"
@@ -98,9 +99,11 @@ const FastParity = () => {
       </div>
 
       <div>
+
+        {/* Wallet */}
         <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
           <div className="parity-top flex-column align-items-center w-100 p-2 ">
-            <p className="mb-1">Amount</p>
+            <p className="mb-1">Win Wallet</p>
             <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
 
             <button
@@ -109,6 +112,9 @@ const FastParity = () => {
                 backgroundColor: "#fc940d",
                 fontSize: 13,
               }}
+              onClick={() =>
+                navigate("/withdraw", { state: { from: location.pathname } })
+              }
             >
               Withdraw
             </button>
@@ -119,6 +125,10 @@ const FastParity = () => {
                 backgroundColor: "#00c282",
                 fontSize: 13,
               }}
+
+              onClick={() =>
+                navigate("/transfer", { state: { from: location.pathname } })
+              }
             >
               Transfer
             </button>
