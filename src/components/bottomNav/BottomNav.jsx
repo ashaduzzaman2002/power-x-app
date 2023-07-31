@@ -19,17 +19,17 @@ const BottomNav = () => {
       </Link>
 
       <Link
-        onClick={() => setCurrentPath('/recharge')}
-        className={`nav-link ${currentPath === '/recharge' ? 'active-nav' : ''}`}
-        to="/recharge"
+        onClick={() => setCurrentPath('/refer')}
+        className={`nav-link ${currentPath === '/refer' ? 'active-nav' : ''}`}
+        to="/refer"
       >
         <i
           class={`bi ${
-            currentPath === '/recharge' ? 'bi-lightning-fill' : 'bi-lightning'
+            currentPath === '/refer' ? 'bi-people-fill' : 'bi-people'
           }`}
         ></i>
         {
-          currentPath === '/recharge' ? <span>Recharge</span> : null
+          currentPath === '/refer' ? <span>Refer</span> : null
         }
       </Link>
 

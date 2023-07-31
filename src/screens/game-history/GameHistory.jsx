@@ -111,7 +111,7 @@ const FastParityCard = () => (
 
     <div className="parity-delivery">
       <p>Delivery: ₹19.00</p>
-      <p>Fees: ₹1.00</p>
+      <p>Bonus: ₹1.00</p>
     </div>
 
     <div className="history-parity-btn">
@@ -160,7 +160,7 @@ const FullParityCard = () => (
 
     <div className="parity-delivery">
       <p>Delivery: ₹19.00</p>
-      <p>Fees: ₹1.00</p>
+      <p>Bonus: ₹1.00</p>
     </div>
 
     <div className="history-parity-btn">

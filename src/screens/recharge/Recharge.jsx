@@ -1,5 +1,5 @@
 import React from "react";
-import { BottomNav, Header } from "../../components";
+import { Header } from "../../components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { whiteQr } from "../../assets";
 
@@ -9,7 +9,6 @@ const Recharge = () => {
 
   return (
     <div className="container">
-      <BottomNav />
       <Header title={"Recharge"} path={location?.state?.from || "/"} />
       <div className="d-flex flex-column align-items-center mt-2">
         <p className="mb-0">Recharge for fast parity</p>
@@ -31,7 +30,7 @@ const Recharge = () => {
         </p>
       </div>
 
-      <div className="mt-2" style={{marginBottom: '100px'}}>
+      <div className="mt-2">
         <button
           onClick={() => navigate("/fast-parity")}
           className="w-100 mb-2 withdraw__btn"

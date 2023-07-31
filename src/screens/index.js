@@ -15,6 +15,7 @@ import Transaction from "./transaction/Transaction";
 import Transfer from "./transfer/Transfer";
 import Withdraw from "./withdraw/Withdraw";
 import RechargeHistory from './recharge-history/RechargeHistory'
+import Refer from "./refer/Refer";
 
 
 export {
@@ -34,5 +35,6 @@ export {
   Transfer,
   Bank,
   AddBank,
-  RechargeHistory
+  RechargeHistory,
+  Refer
 };

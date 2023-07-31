@@ -181,16 +181,20 @@ const FastParity = () => {
         </div>
 
         <div className="game-coins mt-4">
-          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src={goldCoin} alt="" />
+          <div className="d-flex flex-column" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img className="mb-1 mx-auto" src={goldCoin} alt="" />
+            <p className="border-top pt-1 w-75 text-center mx-auto">2X</p>
           </div>
 
-          <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div className="d-flex flex-column" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img
+            className="mb-2 mx-auto"
               src={silverCoin}
               alt=""
-              style={{ width: "87%", marginTop: "0.3rem" }}
+              style={{ width: "60%", marginTop: "0.3rem" }}
             />
+
+            <p className="border-top pt-1 w-75 text-center mx-auto">2X</p>
           </div>
         </div>
 

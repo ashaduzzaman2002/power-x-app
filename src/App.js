@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { FastParity, FollowUs, ForgotPass, Forward, Home, Profile, Transaction, Signin, Signup, GameHistory, Recharge, Parity, Withdraw, Transfer, Bank, AddBank, RechargeHistory } from "./screens";
+import { FastParity, FollowUs, ForgotPass, Forward, Home, Profile, Transaction, Signin, Signup, GameHistory, Recharge, Parity, Withdraw, Transfer, Bank, AddBank, RechargeHistory, Refer } from "./screens";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/bank" element={<Bank />} />
         <Route path="/add-bank" element={<AddBank />} />
+        <Route path="/refer" element={<Refer />} />
       </Routes>
     </>
   );

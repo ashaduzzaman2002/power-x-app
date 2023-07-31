@@ -75,7 +75,14 @@
 
 .history-parity-btn button {
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   border-radius: 2rem;
   font-weight: 500;
+}
+
+
+@media screen and (max-width: 370px) {
+  .parity-myorder td:last-child {
+    font-size: 14px;
+}
 }
