@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./game.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { goldCoin, silverCoin } from "../../assets";
 import { Header } from "../../components";
 
@@ -362,7 +362,7 @@ const FastParity = () => {
   );
 };
 
-function ContinuousTab({}) {
+function ContinuousTab() {
   const fastParityContinuousList = [
     0,
     7,
@@ -426,7 +426,7 @@ function ContinuousTab({}) {
   );
 }
 
-const Record = ({}) => {
+const Record = () => {
   const numberList = [
     2,
     2,
