@@ -7,16 +7,16 @@ const Header = ({ title, path }) => {
   return (
     <div>
       {/* Top Navbar */}
-      <div class="app__top__nav">
-        <div class="top__nav__cols">
+      <div className="app__top__nav">
+        <div className="top__nav__cols">
           <div
-            class="top__nav__back__btn"
+            className="top__nav__back__btn"
             onClick={() => navigate(path || "/")}
           >
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 512 512"
               height="1em"
               width="1em"
@@ -26,12 +26,12 @@ const Header = ({ title, path }) => {
             </svg>
           </div>
         </div>
-        <div class="top__nav__cols" style={{flexBasis: '50%'}}>
+        <div className="top__nav__cols" style={{flexBasis: '50%'}}>
           <center>
-            <div class="top__nav__title">{title}</div>
+            <div className="top__nav__title">{title}</div>
           </center>
         </div>
-        <div class="top__nav__cols"></div>
+        <div className="top__nav__cols"></div>
       </div>
     </div>
   );

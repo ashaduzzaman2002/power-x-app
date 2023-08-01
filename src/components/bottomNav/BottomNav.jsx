@@ -10,7 +10,7 @@ const BottomNav = () => {
       <Link onClick={() => setCurrentPath('/')} className={`nav-link ${currentPath === '/' ? 'active-nav' : ''}`} to="/">
        
         <i
-          class={`bi ${currentPath === '/' ? 'bi-house-fill' : 'bi-house'}`}
+          className={`bi ${currentPath === '/' ? 'bi-house-fill' : 'bi-house'}`}
         ></i>
         {
           currentPath === '/' ? <span>Home</span> : null
@@ -24,7 +24,7 @@ const BottomNav = () => {
         to="/refer"
       >
         <i
-          class={`bi ${
+          className={`bi ${
             currentPath === '/refer' ? 'bi-people-fill' : 'bi-people'
           }`}
         ></i>
@@ -39,7 +39,7 @@ const BottomNav = () => {
         to="/profile"
       >
         <i
-          class={`bi ${
+          className={`bi ${
             currentPath === '/profile' ? 'bi-person-fill' : 'bi-person'
           }`}
         ></i>

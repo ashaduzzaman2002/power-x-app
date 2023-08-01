@@ -1,20 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./profile.css";
 import BottomNav from "../../components/bottomNav/BottomNav";
 import { useNavigate } from "react-router-dom";
 import { ConfirmModal, Header } from "../../components";
+import { AppContext } from "../../context/AppContext";
+import { dbObject } from "../../helper/constant";
 
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
-  // const { user, setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AppContext);
   let navigate = useNavigate();
 
   const logout = async () => {
     try {
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
-      // setUser(null);
+      const formData = new FormData();
+      formData.append('userId', user?.id);
+
+      const { data } = await dbObject.post('/users/logout.php', formData)
+      if (!data.error) {
+        setUser(null)
+        navigate("/signin");
+        // setTimeout(() => {
+          
+        // }, 500);
+      }
+
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +76,7 @@ const Profile = () => {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="1em"
                   width="1em"
@@ -84,7 +94,7 @@ const Profile = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 height="1em"
                 width="1em"
@@ -106,7 +116,7 @@ const Profile = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -130,7 +140,7 @@ const Profile = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 height="1em"
                 width="1em"
@@ -153,7 +163,7 @@ const Profile = () => {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 448 512"
                   height="1em"
                   width="1em"
@@ -168,7 +178,7 @@ const Profile = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 height="1em"
                 width="1em"
@@ -191,7 +201,7 @@ const Profile = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -210,7 +220,7 @@ const Profile = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 512 512"
                 height="1em"
                 width="1em"

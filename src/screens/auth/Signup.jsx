@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import IsNotAuthenticate from "../../redirect/IsNotAuthenticate";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Signup = () => {
   };
 
   return (
+    <IsNotAuthenticate>
     <div className="login-dark">
       <form onSubmit={handSubmit} method="post" className="container">
         <h2 className="sr-only">Sign In</h2>
@@ -66,6 +68,7 @@ const Signup = () => {
         </Link>
       </form>
     </div>
+    </IsNotAuthenticate>
   );
 };
 

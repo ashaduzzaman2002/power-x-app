@@ -3,6 +3,7 @@
     background:#475d62 url(../../assets/images/loginBanner.jpg);
     background-size:cover;
     position:relative;
+    background-color: #071724;
   }
   
   .login-dark form {

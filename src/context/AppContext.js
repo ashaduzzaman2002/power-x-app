@@ -1,29 +1,35 @@
 import { createContext, useEffect, useState } from "react";
 import { dbObject } from "../helper/constant";
 
+export const AppContext = createContext();
 
-export const AppContext = createContext()
+const AppProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const { data } = await dbObject.get("/users/auth.php");
+      if (!data.error) {
+        setUser(data.response);
+      }
 
-const AppProvider = ({children}) => {
-    const [user, setUser] = useState(null)
-    const getData = async () => {
-        try {
-            const {data} = await dbObject.get('/users/auth.php')
-            console.log(data)
-        } catch (error) {
-            console.log(error)
-        }
+      setLoading(false);
+
+      console.log(data)
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    useEffect(() => {
-        getData()
-    }, [])
-    return (
-        <AppContext.Provider value={{user, setUser}}>
-            {children}
-        </AppContext.Provider>
-    )
-}
+  useEffect(() => {
+    getData();
+  }, []);
+  return (
+    <AppContext.Provider value={{ user, setUser, loading }}>
+      {children}
+    </AppContext.Provider>
+  );
+};
 
-
-export default AppProvider
+export default AppProvider;

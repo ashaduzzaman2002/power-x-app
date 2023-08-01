@@ -348,11 +348,27 @@
 .game-coins {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
-.game-coins img {
-  width: 70%;
+.gold-coin {
+  background-image: url('../../assets/images/gold.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.silver-coin {
+  background-image: url('../../assets/images/silverCoin.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* color: midnightblue; */
+  
+}
+
+.game-coins div p:first-child {
+  font-weight: 600;
 }
 
 .input-container {
@@ -524,8 +540,3 @@ input:focus {
   font-size: 1.2rem;
 }
 
-.gold-coin {
-  background-color: goldenrod;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-}

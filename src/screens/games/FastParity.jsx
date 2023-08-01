@@ -17,7 +17,7 @@ const FastParity = () => {
     <div className="container">
       <Header title={"Fast Parity"} />
 
-{/* Start */}
+      {/* Start */}
       <div
         className="modal fade"
         id="exampleModal"
@@ -89,7 +89,7 @@ const FastParity = () => {
                 }}
                 className="btn w-100 text-light py-2"
                 data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+                data-bs-target="#exampleModal"
               >
                 Start
               </button>
@@ -182,19 +182,14 @@ const FastParity = () => {
 
         <div className="game-coins mt-4">
           <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            {/* <img className="mb-1 mx-auto" src={goldCoin} alt="" /> */}
-            <p className="border-top pt-1 w-75 text-center mx-auto">2X</p>
+            <p className="mb-0 pt-3 text-center">GOLD</p>
+            <p className="border-top w-75 text-center mx-auto">2X</p>
           </div>
 
-          <div className="d-flex flex-column" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img
-            className="mb-2 mx-auto"
-              src={silverCoin}
-              alt=""
-              style={{ width: "60%", marginTop: "0.3rem" }}
-            />
+          <div className="d-flex flex-column justify-content-center align-items-center silver-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <p className="mb-0 pt-3 text-center">SILVER</p>
 
-            <p className="border-top pt-1 w-75 text-center mx-auto">2X</p>
+            <p className="border-top  w-75 text-center mx-auto">2X</p>
           </div>
         </div>
 
@@ -281,18 +276,16 @@ const FastParity = () => {
         <div className="gameDetails-btn-group">
           <button
             onClick={() => setActiveBtn2("OtherPlayers")}
-            className={`${
-              activeBtn2 === "OtherPlayers" ? "gameDetails-activeBtn" : ""
-            }`}
+            className={`${activeBtn2 === "OtherPlayers" ? "gameDetails-activeBtn" : ""
+              }`}
           >
             Other Players
           </button>
 
           <button
             onClick={() => setActiveBtn2("MyOrder")}
-            className={`${
-              activeBtn2 === "MyOrder" ? "gameDetails-activeBtn" : ""
-            }`}
+            className={`${activeBtn2 === "MyOrder" ? "gameDetails-activeBtn" : ""
+              }`}
           >
             My Orders
           </button>
@@ -400,8 +393,8 @@ function ContinuousTab() {
                   item === "-"
                     ? "#fec007"
                     : item % 2 === 0
-                    ? "#f44238"
-                    : "#3b8d3c",
+                      ? "#f44238"
+                      : "#3b8d3c",
               }}
             >
               <div
@@ -471,8 +464,8 @@ const Record = () => {
                   item === "-"
                     ? "#fec007"
                     : item % 2 === 0
-                    ? "#f44238"
-                    : "#3b8d3c",
+                      ? "#f44238"
+                      : "#3b8d3c",
               }}
             >
               <div

@@ -4,15 +4,13 @@ import BottomNav from "../../components/bottomNav/BottomNav";
 import { bettingBanner, dice, rocket } from "../../assets";
 import { AppContext } from "../../context/AppContext";
 import { useNavigate } from "react-router-dom";
+import IsAuthenticate from "../../redirect/IsAuthenticate";
 
 const Home = () => {
-  const { user } = useContext(AppContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!user) return navigate("/signin");
-  }, [user]);
+  const navigate = useNavigate()
+  
   return (
-    <>
+    <IsAuthenticate>
       <BottomNav />
       <div className="container">
         <div className="background-custom"></div>
@@ -39,7 +37,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </IsAuthenticate>
   );
 };
 

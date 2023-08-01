@@ -10,14 +10,14 @@ const FollowUs = () => {
       <div className="follow-cards">
         <a href="#" target="blank" className="follow-card">
           <div>
-            <i class="bi bi-telegram"></i>
+            <i className="bi bi-telegram"></i>
           </div>
           <h2 className="mb-0">Telegram Channel</h2>
         </a>
 
         <a href="#" target="blank" className="follow-card">
           <div>
-            <i class="bi bi-robot"></i>
+            <i className="bi bi-robot"></i>
           </div>
           <h2 className="mb-0">Telegram Bot</h2>
         </a>
