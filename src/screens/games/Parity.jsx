@@ -19,14 +19,14 @@ const Parity = () => {
   
   {/* Start */}
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
           style={{ backdropFilter: "blur(2px)" }}
         >
-          <div class="modal-dialog modal-dialog-centered">
+          <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content start-box">
               <h2 className="game-name">Gold</h2>
               <p>Points</p>

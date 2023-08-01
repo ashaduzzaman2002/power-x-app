@@ -1,6 +1,6 @@
 import React from "react";
 import "./followus.css";
-import Header from "../../../components/header/Header";
+import Header from "../../components/header/Header";
 
 const FollowUs = () => {
   return (

@@ -27,11 +27,11 @@ const Withdraw = () => {
     <div className="container">
       <Header title={"Withdraw"} path={location?.state?.from || "/"} />
 
-      <div class="withdrawal__page__balance__section">
+      <div className="withdrawal__page__balance__section">
         <center>
-          <div class="withdrawal__page__balance__section__top">My Balance</div>
+          <div className="withdrawal__page__balance__section__top">My Balance</div>
           <div
-            class="withdrawal__page__balance__section__bottom"
+            className="withdrawal__page__balance__section__bottom"
             style={{ fontFamily: "sans-serif" }}
           >
             ₹398.48
@@ -39,16 +39,16 @@ const Withdraw = () => {
         </center>
       </div>
 
-      <div class="passbook__details">
-        <div class="passbook__details__in">
-          <div class="passbook__detail__box" style={{ marginTop: 15 }}>
-            <div class="to__bank">Bank</div>
-            <div class="passbook__active__container">
-              <div class="passbook__active">
+      <div className="passbook__details">
+        <div className="passbook__details__in">
+          <div className="passbook__detail__box" style={{ marginTop: 15 }}>
+            <div className="to__bank">Bank</div>
+            <div className="passbook__active__container">
+              <div className="passbook__active">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -58,22 +58,22 @@ const Withdraw = () => {
                 </svg>
               </div>
             </div>
-            <div class="passbook__detail">
-              <div class="passbook__detail__col">
-                <div class="passbook__detail__col__left">Name</div>
-                <div class="passbook__detail__col__right">Ashadu Zaman</div>
+            <div className="passbook__detail">
+              <div className="passbook__detail__col">
+                <div className="passbook__detail__col__left">Name</div>
+                <div className="passbook__detail__col__right">Ashadu Zaman</div>
               </div>
-              <div class="passbook__detail__col">
-                <div class="passbook__detail__col__left">IFSC</div>
-                <div class="passbook__detail__col__right">SOMETHING002</div>
+              <div className="passbook__detail__col">
+                <div className="passbook__detail__col__left">IFSC</div>
+                <div className="passbook__detail__col__right">SOMETHING002</div>
               </div>
-              <div class="passbook__detail__col">
-                <div class="passbook__detail__col__left">Account Number</div>
-                <div class="passbook__detail__col__right">0616261626162</div>
+              <div className="passbook__detail__col">
+                <div className="passbook__detail__col__left">Account Number</div>
+                <div className="passbook__detail__col__right">0616261626162</div>
               </div>
             </div>
           </div>
-          <div class="changeCard">
+          <div className="changeCard">
             <div
               className="text-light"
               onClick={() =>
@@ -86,17 +86,17 @@ const Withdraw = () => {
         </div>
       </div>
       
-      <div class="withdrawal__amount__field">
-        <div class="withdrawal__field__header">
+      <div className="withdrawal__amount__field">
+        <div className="withdrawal__field__header">
           Withdrawal Amount{" "}
           <span style={{ fontSize: 12, fontWeight: "300" }}></span>
         </div>
-        <div class="withdrawal__input__field">
-          <div class="withdrawal__input__field__icon">
+        <div className="withdrawal__input__field">
+          <div className="withdrawal__input__field__icon">
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 320 512"
               height="1em"
               width="1em"
@@ -114,21 +114,21 @@ const Withdraw = () => {
             onChange={handleChange}
           />
         </div>
-        <div class="withdrawal__input__notes">
-          <div class="withdrawal__input__notes__left">
+        <div className="withdrawal__input__notes">
+          <div className="withdrawal__input__notes__left">
             Amount &lt;₹1500,fee 30
           </div>
-          <div class="withdrawal__input__notes__left">Maximum: ₹398.48</div>
+          <div className="withdrawal__input__notes__left">Maximum: ₹398.48</div>
         </div>
-        <div class="withdrawal__input__notes">
-          <div class="withdrawal__input__notes__left">
+        <div className="withdrawal__input__notes">
+          <div className="withdrawal__input__notes__left">
             Amount &gt;=₹1500,fee 2%
           </div>
-          <div class="withdrawal__input__notes__left">Minimum: ₹35</div>
+          <div className="withdrawal__input__notes__left">Minimum: ₹35</div>
         </div>
         <br />
         <button
-          class={`withdraw__btn ${error && "recharge__btn_disabled"}`}
+          className={`withdraw__btn ${error && "recharge__btn_disabled"}`}
           style={{
             height: 45,
           }}
@@ -138,81 +138,81 @@ const Withdraw = () => {
         </button>
       </div>
 
-      <div class="withdrawal__records__section">
-        <div class="withdrawal__records__section__record__top"></div>
-        <div class="withdrawal__records__section__bottom">
-          <div class="withdrawal__records__section__bottom__header">
+      <div className="withdrawal__records__section">
+        <div className="withdrawal__records__section__record__top"></div>
+        <div className="withdrawal__records__section__bottom">
+          <div className="withdrawal__records__section__bottom__header">
             Withdrawal Records
           </div>
-          <div class="withdrawalRecords__container">
-            <div class="withdrawalRecords__container__box">
-              <div class="withdrawalRecords__container__box__top">
+          <div className="withdrawalRecords__container">
+            <div className="withdrawalRecords__container__box">
+              <div className="withdrawalRecords__container__box__top">
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{ flexBasis: "32%", width: "100%" }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Amount
                   </div>
                   <div
-                    class="withdrawalRecords__container__box__top__bottom"
+                    className="withdrawalRecords__container__box__top__bottom"
                     style={{ fontFamily: "sans-serif" }}
                   >
                     ₹158
                   </div>
                 </div>
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{ flexBasis: "34%", width: "100%" }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Time
                   </div>
-                  <div class="withdrawalRecords__container__box__top__bottom">
+                  <div className="withdrawalRecords__container__box__top__bottom">
                     01/25 16:24
                   </div>
                 </div>
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{
                     flexBasis: "34%",
                     width: "100%",
                     textAlign: "right",
                   }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Status
                   </div>
-                  <div class="withdrawalRecords__container__box__top__bottom">
+                  <div className="withdrawalRecords__container__box__top__bottom">
                     Pending
                   </div>
                 </div>
               </div>
-              <div class="withdrawalRecords__container__box__bottom">
-                <div class="withdrawalRecords__container__box__bottom__top">
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+              <div className="withdrawalRecords__container__box__bottom">
+                <div className="withdrawalRecords__container__box__bottom__top">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     Actually Arrived: 128
                   </div>
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     Fee: 30
                   </div>
                 </div>
                 <div
-                  class="withdrawalRecords__container__box__bottom__top"
+                  className="withdrawalRecords__container__box__bottom__top"
                   style={{ marginTop: 12 }}
                 >
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     Name:
                   </div>
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     Harsh Kumar Jha
                   </div>
                 </div>
-                <div class="withdrawalRecords__container__box__bottom__top">
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+                <div className="withdrawalRecords__container__box__bottom__top">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     UPI:
                   </div>
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     mrhulk@apl
                   </div>
                 </div>

@@ -25,7 +25,7 @@ const AddBank = () => {
       <Header title={"Add Bank"} path={"/bank"} />
 
       <div className="addbank-icon">
-      <i class="bi bi-bank2" ></i>
+      <i className="bi bi-bank2" ></i>
        
       </div>
 

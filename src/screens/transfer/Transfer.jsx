@@ -25,11 +25,11 @@ const Transfer = () => {
     <div className="container">
       <Header title={"Transfer"} path={location?.state?.from || "/"} />
       
-      <div class="withdrawal__page__balance__section">
+      <div className="withdrawal__page__balance__section">
         <center>
-          <div class="withdrawal__page__balance__section__top">My Balance</div>
+          <div className="withdrawal__page__balance__section__top">My Balance</div>
           <div
-            class="withdrawal__page__balance__section__bottom"
+            className="withdrawal__page__balance__section__bottom"
             style={{ fontFamily: "sans-serif" }}
           >
             ₹398.48
@@ -37,13 +37,13 @@ const Transfer = () => {
         </center>
       </div>
 
-      <div class="withdrawal__amount__field">
-        <div class="withdrawal__field__header">
+      <div className="withdrawal__amount__field">
+        <div className="withdrawal__field__header">
           Transfer Amount{" "}
           <span style={{ fontSize: 12, fontWeight: "300" }}></span>
         </div>
-        <div class="withdrawal__input__field">
-          <div class="withdrawal__input__field__icon">
+        <div className="withdrawal__input__field">
+          <div className="withdrawal__input__field__icon">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -68,7 +68,7 @@ const Transfer = () => {
         
         <br />
         <button
-          class={`withdraw__btn ${error && "recharge__btn_disabled"}`}
+          className={`withdraw__btn ${error && "recharge__btn_disabled"}`}
           style={{
             height: 45,
           }}
@@ -78,63 +78,63 @@ const Transfer = () => {
         </button>
       </div>
 
-      <div class="withdrawal__records__section">
-        <div class="withdrawal__records__section__record__top"></div>
-        <div class="withdrawal__records__section__bottom">
-          <div class="withdrawal__records__section__bottom__header">
+      <div className="withdrawal__records__section">
+        <div className="withdrawal__records__section__record__top"></div>
+        <div className="withdrawal__records__section__bottom">
+          <div className="withdrawal__records__section__bottom__header">
             Transfer Records
           </div>
-          <div class="withdrawalRecords__container">
-            <div class="withdrawalRecords__container__box">
-              <div class="withdrawalRecords__container__box__top">
+          <div className="withdrawalRecords__container">
+            <div className="withdrawalRecords__container__box">
+              <div className="withdrawalRecords__container__box__top">
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{ flexBasis: "32%", width: "100%" }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Amount
                   </div>
                   <div
-                    class="withdrawalRecords__container__box__top__bottom"
+                    className="withdrawalRecords__container__box__top__bottom"
                     style={{ fontFamily: "sans-serif" }}
                   >
                     ₹158
                   </div>
                 </div>
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{ flexBasis: "34%", width: "100%" }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Time
                   </div>
-                  <div class="withdrawalRecords__container__box__top__bottom">
+                  <div className="withdrawalRecords__container__box__top__bottom">
                     01/25 16:24
                   </div>
                 </div>
                 <div
-                  class="withdrawalRecords__container__box__top__col"
+                  className="withdrawalRecords__container__box__top__col"
                   style={{
                     flexBasis: "34%",
                     width: "100%",
                     textAlign: "right",
                   }}
                 >
-                  <div class="withdrawalRecords__container__box__top__top">
+                  <div className="withdrawalRecords__container__box__top__top">
                     Status
                   </div>
-                  <div class="withdrawalRecords__container__box__top__bottom">
+                  <div className="withdrawalRecords__container__box__top__bottom">
                     Pending
                   </div>
                 </div>
               </div>
-              <div class="withdrawalRecords__container__box__bottom">
-                <div class="withdrawalRecords__container__box__bottom__top">
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
+              <div className="withdrawalRecords__container__box__bottom">
+                <div className="withdrawalRecords__container__box__bottom__top">
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
                     Actually Arrived: 128
                   </div>
-                  <div class="withdrawalRecords__container__box__bottom__top__col">
-                    Fee: 30
+                  <div className="withdrawalRecords__container__box__bottom__top__col">
+                    Bonus: 30
                   </div>
                 </div>
                 

@@ -19,14 +19,14 @@ const FastParity = () => {
 
 {/* Start */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
         style={{ backdropFilter: "blur(2px)" }}
       >
-        <div class="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content start-box">
             <h2 className="game-name">Gold</h2>
             <p>Points</p>
@@ -181,8 +181,8 @@ const FastParity = () => {
         </div>
 
         <div className="game-coins mt-4">
-          <div className="d-flex flex-column" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img className="mb-1 mx-auto" src={goldCoin} alt="" />
+          <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {/* <img className="mb-1 mx-auto" src={goldCoin} alt="" /> */}
             <p className="border-top pt-1 w-75 text-center mx-auto">2X</p>
           </div>
 

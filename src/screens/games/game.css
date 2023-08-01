@@ -523,3 +523,9 @@ input:focus {
 .delivery div p:last-child {
   font-size: 1.2rem;
 }
+
+.gold-coin {
+  background-color: goldenrod;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}

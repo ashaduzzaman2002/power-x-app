@@ -19,7 +19,7 @@ const Bank = () => {
           </div>
         ) : (
           <div onClick={() => navigate('/add-bank')} className="bank-card">
-            <i class="bi bi-bank2" style={{fontSize: '3rem'}}></i>
+            <i className="bi bi-bank2" style={{fontSize: '3rem'}}></i>
             <p>Tab to add first account</p>
           </div>
         )}
@@ -34,7 +34,7 @@ const BankCard = ({setBanks, navigate}) => (
       <div className="bank-detail-card-header">
         <h3 className="m-0">Punjab National Bank</h3>
         <button onClick={() => setBanks(false)}>
-        <i class="bi bi-trash3"></i>
+        <i className="bi bi-trash3"></i>
         </button>
       </div>
   
@@ -68,7 +68,7 @@ const BankCard = ({setBanks, navigate}) => (
           className="w-100 h-100 d-flex justify-content-center align-items-center"
         onClick={() => navigate('/add-bank')}
         >
-          <i class="bi bi-plus"></i>
+          <i className="bi bi-plus"></i>
         </button>
       </div>
     </div>

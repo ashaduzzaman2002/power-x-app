@@ -20,15 +20,27 @@ const Signin = () => {
       initialValues: initialValues,
       validationSchema: signinSchema,
       onSubmit: async () => {
-        setUser(true)
-        // try {
-        //   const {data} = await axios.post(baseURL+'/power-x/apis/users/login.php', values)
-        // console.log(data)
-        // } catch (error) {
-        //   console.log(error)
-        // }
+        // setUser(true)
+        try {
+          const formData = new FormData();
+          for (const key in values) {
+            formData.append(key, values[key]);
+          }
+          const config = {
+            headers: {
+              'Content-Type': 'multipart/form-data', // Set the content type to form data
+            },
+          };
 
-       
+          const {data} = await dbObject.post('/users/login.php', formData, config);
+          console.log(data)
+          // const { data } = await axios.post(baseURL + '/power-x/apis/users/login.php', values)
+          // console.log(data)
+        } catch (error) {
+          console.log(error)
+        }
+
+
       },
     });
 
@@ -81,7 +93,7 @@ const Signin = () => {
           </button>
         </div>
         <Link to="/forgot-password" className="forgot">
-          Forgot your email or password?
+          Forgot your password?
         </Link>
 
         <Link to={"/signup"} className="signIn_SignUp">

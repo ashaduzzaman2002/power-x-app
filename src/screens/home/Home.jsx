@@ -16,9 +16,9 @@ const Home = () => {
       <BottomNav />
       <div className="container">
         <div className="background-custom"></div>
-        <div class="position-relative pt-3">
+        <div className="position-relative pt-3">
           <div className="heading">
-            <h1 class="">Play, win, repeat,</h1>
+            <h1 className="">Play, win, repeat,</h1>
             <p>Succeed!</p>
           </div>
 
