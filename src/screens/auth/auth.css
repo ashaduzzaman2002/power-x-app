@@ -1,6 +1,6 @@
 .login-dark {
     height:100vh;
-    background:#475d62 url(../../assets/images/loginBanner.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.778)), url('https://e0.pxfuel.com/wallpapers/171/601/desktop-wallpaper-casino-games-automotive-lighting-sky-beautiful-poker-luxury-black-card.jpg');
     background-size:cover;
     position:relative;
     background-color: #071724;

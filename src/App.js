@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { FastParity, FollowUs, ForgotPass, Forward, Home, Profile, Transaction, Signin, Signup, GameHistory, Recharge, Parity, Withdraw, Transfer, Bank, AddBank, RechargeHistory, Refer } from "./screens";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

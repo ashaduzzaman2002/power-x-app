@@ -1,19 +1,20 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { signinSchema } from "../../validation/auth";
 import { AppContext } from "../../context/AppContext";
-import { baseURL, dbObject } from "../../helper/constant";
-import axios from "axios";
+import { dbObject } from "../../helper/constant";
 import IsNotAuthenticate from "../../redirect/IsNotAuthenticate";
+import { toast } from "react-toastify";
+import { toastOptions } from "../../components/toaster/Toaster";
 
 const initialValues = {
   phone: "",
   password: "",
 };
 const Signin = () => {
-  const { user, setUser } = useContext(AppContext);
+  const { setUser } = useContext(AppContext);
   const navigate = useNavigate();
 
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
@@ -21,7 +22,6 @@ const Signin = () => {
       initialValues: initialValues,
       validationSchema: signinSchema,
       onSubmit: async () => {
-        // setUser(true)
         try {
           const formData = new FormData();
           for (const key in values) {
@@ -34,14 +34,19 @@ const Signin = () => {
           };
 
           const { data } = await dbObject.post('/users/login.php', formData, config);
-          console.log(data)
+          if (!data.error) {
+            toast.success(data.message, toastOptions)
 
-          if(!data.error) {
-            setUser(data.response)
+            setTimeout(() => {
+              setUser(data.response)
+              navigate('/')
+            }, 1000)
+          } else { 
+            toast.error(data.message, toastOptions) 
           }
-          
         } catch (error) {
           console.log(error)
+          toast.error('Internal server error', toastOptions) 
         }
 
 
@@ -50,6 +55,7 @@ const Signin = () => {
 
   return (
     <IsNotAuthenticate>
+      
       <div className="login-dark">
         <form onSubmit={handleSubmit} method="post" className="container">
           <h2 className="sr-only">Sign In</h2>

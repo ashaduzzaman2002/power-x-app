@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { ConfirmModal, Header } from "../../components";
 import { AppContext } from "../../context/AppContext";
 import { dbObject } from "../../helper/constant";
+import { toast } from "react-toastify";
+import { toastOptions } from '../../components/toaster/Toaster'
+import IsAuthenticate from "../../redirect/IsAuthenticate";
 
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
@@ -18,19 +21,23 @@ const Profile = () => {
 
       const { data } = await dbObject.post('/users/logout.php', formData)
       if (!data.error) {
-        setUser(null)
-        navigate("/signin");
-        // setTimeout(() => {
-          
-        // }, 500);
+        toast.success(data?.message, toastOptions)
+
+        setTimeout(() => {
+          setUser(null)
+          navigate("/signin");
+        }, 1000);
+      } else {
+        toast.error(data?.message, toastOptions)
       }
 
     } catch (error) {
       console.log(error);
+      toast.error('Internal server error', toastOptions)
     }
   };
   return (
-    <>
+    <IsAuthenticate>
       {showModal && (
         <ConfirmModal
           confirmFunc={logout}
@@ -118,8 +125,8 @@ const Profile = () => {
                   fill="none"
                   strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -203,8 +210,8 @@ const Profile = () => {
                   fill="none"
                   strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +240,7 @@ const Profile = () => {
         </div>
         <div className="toastContainer top-center"></div>
       </div>
-    </>
+    </IsAuthenticate>
   );
 };
 

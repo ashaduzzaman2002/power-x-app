@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import Toaster from '../components/toaster/Toaster'
 
 const IsNotAuthenticate = ({ children }) => {
     const { loading, user } = useContext(AppContext)
@@ -23,7 +24,7 @@ const IsNotAuthenticate = ({ children }) => {
         </div>
     } else {
         return (
-            <div>{children}</div>
+            <div><Toaster />{children}</div>
         )
     }
 }
