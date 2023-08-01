@@ -48,9 +48,6 @@ const Signin = () => {
       },
     });
 
-  useEffect(() => {
-    if (user) return navigate("/");
-  }, [user]);
   return (
     <IsNotAuthenticate>
       <div className="login-dark">

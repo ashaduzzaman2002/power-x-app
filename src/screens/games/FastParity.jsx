@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./game.css";
 import { useLocation, useNavigate } from "react-router-dom";
-import { goldCoin, silverCoin } from "../../assets";
 import { Header } from "../../components";
+import IsAuthenticate from "../../redirect/IsAuthenticate";
 
 const FastParity = () => {
   const navigate = useNavigate();
@@ -14,344 +14,346 @@ const FastParity = () => {
   const location = useLocation();
 
   return (
-    <div className="container">
-      <Header title={"Fast Parity"} />
+    <IsAuthenticate path='/fast-parity'>
+      <div className="container">
+        <Header title={"Fast Parity"} />
 
-      {/* Start */}
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-        style={{ backdropFilter: "blur(2px)" }}
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content start-box">
-            <h2 className="game-name">Gold</h2>
-            <p>Points</p>
+        {/* Start */}
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+          style={{ backdropFilter: "blur(2px)" }}
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content start-box">
+              <h2 className="game-name">Gold</h2>
+              <p>Points</p>
 
-            <div className="points-div">
-              <h3>INR 0.0</h3>
-              <button onClick={() => navigate("/recharge")}>
-                <i className="fa-solid fa-clock-rotate-left"></i> Recharge
-              </button>
-            </div>
-
-            <div className="contract-point">
-              <p>Contract Points</p>
-
-              <div>
-                <button>10</button>
-                <button>100</button>
-                <button className={"contract-point-selected"}>1000</button>
-                <button>10000</button>
+              <div className="points-div">
+                <h3>INR 0.0</h3>
+                <button onClick={() => navigate("/recharge")}>
+                  <i className="fa-solid fa-clock-rotate-left"></i> Recharge
+                </button>
               </div>
-            </div>
 
-            <div className="start-number-outer">
-              <p>Number</p>
+              <div className="contract-point">
+                <p>Contract Points</p>
 
-              <div className="start-number">
                 <div>
-                  <button>-5</button>
-                  <button>-1</button>
-                </div>
-                <p>1000</p>
-                <div>
-                  <button>+1</button>
-                  <button>+5</button>
+                  <button>10</button>
+                  <button>100</button>
+                  <button className={"contract-point-selected"}>1000</button>
+                  <button>10000</button>
                 </div>
               </div>
+
+              <div className="start-number-outer">
+                <p>Number</p>
+
+                <div className="start-number">
+                  <div>
+                    <button>-5</button>
+                    <button>-1</button>
+                  </div>
+                  <p>1000</p>
+                  <div>
+                    <button>+1</button>
+                    <button>+5</button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="delivery">
+                <div>
+                  <p>Delivery</p>
+                  <p>50.00</p>
+                </div>
+
+                <div>
+                  <p>Fee</p>
+                  <p>0.00</p>
+                </div>
+
+                <div>
+                  <p>Amount</p>
+                  <p>+176.00</p>
+                </div>
+              </div>
+
+              <div className="w-100 mt-4">
+                <button
+                  style={{
+                    backgroundColor: 'rgb(252, 148, 13)'
+                  }}
+                  className="btn w-100 text-light py-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Start
+                </button>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div className="delivery">
-              <div>
-                <p>Delivery</p>
-                <p>50.00</p>
-              </div>
+        <div>
 
-              <div>
-                <p>Fee</p>
-                <p>0.00</p>
-              </div>
+          {/* Wallet */}
+          <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
+            <div className="parity-top flex-column align-items-center w-100 p-2 ">
+              <p className="mb-1">Win Wallet</p>
+              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
 
-              <div>
-                <p>Amount</p>
-                <p>+176.00</p>
-              </div>
-            </div>
-
-            <div className="w-100 mt-4">
               <button
+                className="btn text-white rounded-pill w-100 fw-medium"
                 style={{
-                  backgroundColor: 'rgb(252, 148, 13)'
+                  backgroundColor: "#fc940d",
+                  fontSize: 13,
                 }}
-                className="btn w-100 text-light py-2"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                onClick={() =>
+                  navigate("/withdraw", { state: { from: location.pathname } })
+                }
               >
-                Start
+                Withdraw
+              </button>
+
+              <button
+                className="btn text-white rounded-pill w-100 fw-medium mt-2"
+                style={{
+                  backgroundColor: "#00c282",
+                  fontSize: 13,
+                }}
+
+                onClick={() =>
+                  navigate("/transfer", { state: { from: location.pathname } })
+                }
+              >
+                Transfer
+              </button>
+            </div>
+
+            <div className="parity-top flex-column align-items-center w-100 p-2">
+              <p className="mb-1">Play Wallet</p>
+              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
+
+              <button
+                className="btn text-white rounded-pill w-100 fw-medium"
+                style={{
+                  backgroundColor: "#fc940d",
+                  fontSize: 13,
+                }}
+                onClick={() =>
+                  navigate("/recharge", { state: { from: location.pathname } })
+                }
+              >
+                Recharge
+              </button>
+
+              <button
+                className="btn text-white rounded-pill w-100 fw-medium mt-2"
+                style={{
+                  backgroundColor: "#00c282",
+                  fontSize: 13,
+                }}
+                onClick={() =>
+                  navigate("/forward", { state: { from: location.pathname } })
+                }
+              >
+                Forward
               </button>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div>
+          <div className="parity-top mt-4 px-4 py-2">
+            <div className="parity-period">
+              <p>5 Minute</p>
+              <p>20230614012</p>
+            </div>
 
-        {/* Wallet */}
-        <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
-          <div className="parity-top flex-column align-items-center w-100 p-2 ">
-            <p className="mb-1">Win Wallet</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
-
-            <button
-              className="btn text-white rounded-pill w-100 fw-medium"
-              style={{
-                backgroundColor: "#fc940d",
-                fontSize: 13,
-              }}
-              onClick={() =>
-                navigate("/withdraw", { state: { from: location.pathname } })
-              }
-            >
-              Withdraw
-            </button>
-
-            <button
-              className="btn text-white rounded-pill w-100 fw-medium mt-2"
-              style={{
-                backgroundColor: "#00c282",
-                fontSize: 13,
-              }}
-
-              onClick={() =>
-                navigate("/transfer", { state: { from: location.pathname } })
-              }
-            >
-              Transfer
-            </button>
-          </div>
-
-          <div className="parity-top flex-column align-items-center w-100 p-2">
-            <p className="mb-1">Play Wallet</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
-
-            <button
-              className="btn text-white rounded-pill w-100 fw-medium"
-              style={{
-                backgroundColor: "#fc940d",
-                fontSize: 13,
-              }}
-              onClick={() =>
-                navigate("/recharge", { state: { from: location.pathname } })
-              }
-            >
-              Recharge
-            </button>
-
-            <button
-              className="btn text-white rounded-pill w-100 fw-medium mt-2"
-              style={{
-                backgroundColor: "#00c282",
-                fontSize: 13,
-              }}
-              onClick={() =>
-                navigate("/forward", { state: { from: location.pathname } })
-              }
-            >
-              Forward
-            </button>
-          </div>
-        </div>
-
-        <div className="parity-top mt-4 px-4 py-2">
-          <div className="parity-period">
-            <p>5 Minute</p>
-            <p>20230614012</p>
-          </div>
-
-          <div className="parity-count">
-            <p className="m-0 mt-1">Count Down</p>
-            <div className="parity-count-box p-2 ">
-              <p className="m-0">3:00</p>
+            <div className="parity-count">
+              <p className="m-0 mt-1">Count Down</p>
+              <div className="parity-count-box p-2 ">
+                <p className="m-0">3:00</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="game-coins mt-4">
-          <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <p className="mb-0 pt-3 text-center">GOLD</p>
-            <p className="border-top w-75 text-center mx-auto">2X</p>
-          </div>
-
-          <div className="d-flex flex-column justify-content-center align-items-center silver-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <p className="mb-0 pt-3 text-center">SILVER</p>
-
-            <p className="border-top  w-75 text-center mx-auto">2X</p>
-          </div>
-        </div>
-
-        <div className="prity-colors">
-          <div
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            className="p-3"
-            style={{ backgroundColor: "#d72e2a" }}
-          >
-            <p className="m-0">Red</p>
-            <p className="m-0 border-top w-75 text-center">2X</p>
-          </div>
-
-          <div
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            style={{ backgroundColor: "#388e3d" }}
-          >
-            <p className="m-0">green</p>
-            <p className="m-0 border-top w-75 text-center">3X</p>
-          </div>
-
-          <div
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            style={{ backgroundColor: "#1976d3" }}
-          >
-            <p className="m-0">Blue</p>
-            <p className="m-0 border-top w-75 text-center">4X</p>
-          </div>
-        </div>
-
-        <div className="paritynum-btns">
-          {firstCardList.map((item, i) => (
-            <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
-              <p className="m-0">{item}</p>
-              <p className="m-0 border-top w-50 text-center">{2 + i}X</p>
+          <div className="game-coins mt-4">
+            <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <p className="mb-0 pt-3 text-center">GOLD</p>
+              <p className="border-top w-75 text-center mx-auto">2X</p>
             </div>
-          ))}
-        </div>
 
-        <div className="d-flex justify-content-center">
-          <button
-            className="btn text-white rounded-pill fw-medium mt-4 px-5 py-2"
-            style={{
-              backgroundColor: "#00c282",
-              boxShadow: "0 10px 20px -10px #00c282",
-            }}
-          >
-            Enter
-          </button>
-        </div>
+            <div className="d-flex flex-column justify-content-center align-items-center silver-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <p className="mb-0 pt-3 text-center">SILVER</p>
 
-        <div className="parity-btn">
-          <button
-            onClick={() => setActiveBtn("continuos")}
-            className={activeBtn === "continuos" ? "parity-btn-active" : ""}
-          >
-            Continuos
-          </button>
-          <button
-            onClick={() => setActiveBtn("record")}
-            className={activeBtn === "record" ? "parity-btn-active" : ""}
-          >
-            Record
-          </button>
-          <button
-            onClick={() => setActiveBtn("probability")}
-            className={activeBtn === "probability" ? "parity-btn-active" : ""}
-          >
-            Probability
-          </button>
-        </div>
+              <p className="border-top  w-75 text-center mx-auto">2X</p>
+            </div>
+          </div>
 
-        {activeBtn === "continuos" && <ContinuousTab />}
+          <div className="prity-colors">
+            <div
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              className="p-3"
+              style={{ backgroundColor: "#d72e2a" }}
+            >
+              <p className="m-0">Red</p>
+              <p className="m-0 border-top w-75 text-center">2X</p>
+            </div>
 
-        {activeBtn === "record" && <Record />}
+            <div
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style={{ backgroundColor: "#388e3d" }}
+            >
+              <p className="m-0">green</p>
+              <p className="m-0 border-top w-75 text-center">3X</p>
+            </div>
 
-        {activeBtn === "probability" && (
-          <Probability probabilityBox={probabilityBox} />
-        )}
+            <div
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style={{ backgroundColor: "#1976d3" }}
+            >
+              <p className="m-0">Blue</p>
+              <p className="m-0 border-top w-75 text-center">4X</p>
+            </div>
+          </div>
 
-        <div className="gameDetails-btn-group">
-          <button
-            onClick={() => setActiveBtn2("OtherPlayers")}
-            className={`${activeBtn2 === "OtherPlayers" ? "gameDetails-activeBtn" : ""
-              }`}
-          >
-            Other Players
-          </button>
+          <div className="paritynum-btns">
+            {firstCardList.map((item, i) => (
+              <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
+                <p className="m-0">{item}</p>
+                <p className="m-0 border-top w-50 text-center">{2 + i}X</p>
+              </div>
+            ))}
+          </div>
 
-          <button
-            onClick={() => setActiveBtn2("MyOrder")}
-            className={`${activeBtn2 === "MyOrder" ? "gameDetails-activeBtn" : ""
-              }`}
-          >
-            My Orders
-          </button>
-        </div>
+          <div className="d-flex justify-content-center">
+            <button
+              className="btn text-white rounded-pill fw-medium mt-4 px-5 py-2"
+              style={{
+                backgroundColor: "#00c282",
+                boxShadow: "0 10px 20px -10px #00c282",
+              }}
+            >
+              Enter
+            </button>
+          </div>
 
-        {activeBtn2 === "OtherPlayers" ? (
-          <div className="gameDetails-others">
+          <div className="parity-btn">
+            <button
+              onClick={() => setActiveBtn("continuos")}
+              className={activeBtn === "continuos" ? "parity-btn-active" : ""}
+            >
+              Continuos
+            </button>
+            <button
+              onClick={() => setActiveBtn("record")}
+              className={activeBtn === "record" ? "parity-btn-active" : ""}
+            >
+              Record
+            </button>
+            <button
+              onClick={() => setActiveBtn("probability")}
+              className={activeBtn === "probability" ? "parity-btn-active" : ""}
+            >
+              Probability
+            </button>
+          </div>
+
+          {activeBtn === "continuos" && <ContinuousTab />}
+
+          {activeBtn === "record" && <Record />}
+
+          {activeBtn === "probability" && (
+            <Probability probabilityBox={probabilityBox} />
+          )}
+
+          <div className="gameDetails-btn-group">
+            <button
+              onClick={() => setActiveBtn2("OtherPlayers")}
+              className={`${activeBtn2 === "OtherPlayers" ? "gameDetails-activeBtn" : ""
+                }`}
+            >
+              Other Players
+            </button>
+
+            <button
+              onClick={() => setActiveBtn2("MyOrder")}
+              className={`${activeBtn2 === "MyOrder" ? "gameDetails-activeBtn" : ""
+                }`}
+            >
+              My Orders
+            </button>
+          </div>
+
+          {activeBtn2 === "OtherPlayers" ? (
+            <div className="gameDetails-others">
+              <div>
+                <p>Period</p>
+                <small>18:54</small>
+              </div>
+
+              <div style={{ textAlign: "center" }}>
+                <p>User</p>
+                <small>****18787</small>
+              </div>
+
+              <div style={{ textAlign: "center" }}>
+                <p>Select</p>
+                <small>2x2</small>
+              </div>
+
+              <div style={{ textAlign: "right" }}>
+                <p>Point</p>
+                <small>₹ 90</small>
+              </div>
+            </div>
+          ) : (
             <div>
-              <p>Period</p>
-              <small>18:54</small>
-            </div>
+              <table style={{ width: "100%", marginTop: "1rem" }}>
+                <thead>
+                  <tr className="parity-myorder-header parity-myorder">
+                    <td>Period</td>
+                    <td>Select</td>
+                    <td>Point</td>
+                    <td>Result</td>
+                    <td>Amount</td>
+                  </tr>
+                </thead>
 
-            <div style={{ textAlign: "center" }}>
-              <p>User</p>
-              <small>****18787</small>
+                <tbody>
+                  <tr className="parity-myorder">
+                    <td>18:01</td>
+                    <td className="parity-selected">
+                      <p
+                        style={{
+                          backgroundColor: "#1776d7",
+                          width: "100%",
+                          color: "#fff",
+                        }}
+                      >
+                        blue
+                      </p>
+                    </td>
+                    <td>₹10</td>
+                    <td className="parity-selected parity-result">
+                      <p style={{ backgroundColor: "#388e3d" }}>7</p>
+                    </td>
+                    <td>+₹0.00</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-
-            <div style={{ textAlign: "center" }}>
-              <p>Select</p>
-              <small>2x2</small>
-            </div>
-
-            <div style={{ textAlign: "right" }}>
-              <p>Point</p>
-              <small>₹ 90</small>
-            </div>
-          </div>
-        ) : (
-          <div>
-            <table style={{ width: "100%", marginTop: "1rem" }}>
-              <thead>
-                <tr className="parity-myorder-header parity-myorder">
-                  <td>Period</td>
-                  <td>Select</td>
-                  <td>Point</td>
-                  <td>Result</td>
-                  <td>Amount</td>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr className="parity-myorder">
-                  <td>18:01</td>
-                  <td className="parity-selected">
-                    <p
-                      style={{
-                        backgroundColor: "#1776d7",
-                        width: "100%",
-                        color: "#fff",
-                      }}
-                    >
-                      blue
-                    </p>
-                  </td>
-                  <td>₹10</td>
-                  <td className="parity-selected parity-result">
-                    <p style={{ backgroundColor: "#388e3d" }}>7</p>
-                  </td>
-                  <td>+₹0.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </IsAuthenticate>
   );
 };
 

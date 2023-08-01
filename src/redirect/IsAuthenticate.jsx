@@ -2,13 +2,13 @@ import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../context/AppContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const IsAuthenticate = ({ children }) => {
+const IsAuthenticate = ({ children, path }) => {
     const { loading, user } = useContext(AppContext)
     const location = useLocation()
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user) return navigate('/signin', { state: { path: location.pathname } })
+        if (!user) return navigate('/signin', { state: { path } })
     }, [user])
 
     if (loading) {
