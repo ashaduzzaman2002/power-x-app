@@ -239,17 +239,7 @@ const FastParity = () => {
             ))}
           </div>
 
-          <div className="d-flex justify-content-center">
-            <button
-              className="btn text-white rounded-pill fw-medium mt-4 px-5 py-2"
-              style={{
-                backgroundColor: "#00c282",
-                boxShadow: "0 10px 20px -10px #00c282",
-              }}
-            >
-              Enter
-            </button>
-          </div>
+         
 
           <div className="parity-btn">
             <button
