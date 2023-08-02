@@ -146,6 +146,7 @@
   flex-direction: column;
   align-items: flex-end;
 }
+
 .parity-count p:first-child {
   color: #c8c5c5;
 }
@@ -175,7 +176,7 @@
 
 .prity-colors {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
   margin-top: 1rem;
 }
@@ -300,6 +301,7 @@
 .game-second-row-color {
   padding: 1rem 0 !important;
 }
+
 .game-second-row-color p {
   background-color: #a2f4c4;
   width: 24px;
@@ -338,11 +340,9 @@
 }
 
 .gameDetails-activeBtn {
-  background: linear-gradient(
-    to right bottom,
-    rgb(255, 185, 9),
-    rgb(254, 64, 45)
-  ) !important;
+  background: linear-gradient(to right bottom,
+      rgb(255, 185, 9),
+      rgb(254, 64, 45)) !important;
 }
 
 .game-coins {
@@ -364,7 +364,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   /* color: midnightblue; */
-  
+
 }
 
 .game-coins div p:first-child {
@@ -374,6 +374,7 @@
 .input-container {
   background: #d3d3d33b;
 }
+
 .input-container input {
   background: none;
   border: none;
@@ -483,6 +484,7 @@ input:focus {
 .start-number-outer {
   margin-top: 1rem;
 }
+
 .start-number {
   margin-top: 0.5rem;
   display: flex;
@@ -540,3 +542,8 @@ input:focus {
   font-size: 1.2rem;
 }
 
+.single-entry {
+  text-align: center;
+  border: 1px solid rgba(0, 255, 255, 0.239);
+  background: #1bb9c134;
+}

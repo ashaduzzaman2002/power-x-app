@@ -222,6 +222,12 @@ const FastParity = () => {
               <p className="m-0">Blue</p>
               <p className="m-0 border-top w-75 text-center">4X</p>
             </div>
+
+            <div
+            className="single-entry"
+            >
+              Single entry option
+            </div>
           </div>
 
           <div className="paritynum-btns">
