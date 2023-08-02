@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { FastParity, FollowUs, ForgotPass, Forward, Home, Profile, Transaction, Signin, Signup, GameHistory, Recharge, Parity, Withdraw, Transfer, Bank, AddBank, RechargeHistory, Refer } from "./screens";
+import { FastParity, FollowUs, ForgotPass, Forward, Home, Profile, Transaction, Signin, Signup, GameHistory, Recharge, Parity, Withdraw, Transfer, Bank, AddBank, RechargeHistory, Refer, Welcome } from "./screens";
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <Routes >
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPass />} />

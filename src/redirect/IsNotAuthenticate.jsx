@@ -10,7 +10,7 @@ const IsNotAuthenticate = ({ children }) => {
 
     useEffect(() => {
         if (user) {
-            return navigate(location?.state?.path || '/')
+            return navigate(location?.state?.path || '/home')
         }
 
         console.log(loading)

@@ -39,7 +39,7 @@ const Signin = () => {
 
             setTimeout(() => {
               setUser(data.response)
-              navigate('/')
+              // navigate('/')
             }, 1000)
           } else { 
             toast.error(data.message, toastOptions) 

@@ -16,7 +16,7 @@ const FastParity = () => {
   return (
     <IsAuthenticate path='/fast-parity'>
       <div className="container">
-        <Header title={"Fast Parity"} />
+        <Header title={"Power X"} />
 
         {/* Start */}
         <div
@@ -181,7 +181,8 @@ const FastParity = () => {
             </div>
           </div>
 
-          <div className="game-coins mt-4">
+          <div className="power-x p-2 position-relative">
+          <div className="game-coins position-relative">
             <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <p className="mb-0 pt-3 text-center">GOLD</p>
               <p className="border-top w-75 text-center mx-auto">2X</p>
@@ -192,9 +193,11 @@ const FastParity = () => {
 
               <p className="border-top  w-75 text-center mx-auto">2X</p>
             </div>
+
+            
           </div>
 
-          <div className="prity-colors">
+          <div className="prity-colors position-relative">
             <div
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
@@ -223,14 +226,10 @@ const FastParity = () => {
               <p className="m-0 border-top w-75 text-center">4X</p>
             </div>
 
-            <div
-            className="single-entry"
-            >
-              Single entry option
-            </div>
+            
           </div>
 
-          <div className="paritynum-btns">
+          <div className="paritynum-btns position-relative">
             {firstCardList.map((item, i) => (
               <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
                 <p className="m-0">{item}</p>
@@ -238,8 +237,13 @@ const FastParity = () => {
               </div>
             ))}
           </div>
+          <div
+            className="single-entry"
+            >
+              <p className="mb-0">Single entry option</p>
+            </div>
+          </div>
 
-         
 
           <div className="parity-btn">
             <button

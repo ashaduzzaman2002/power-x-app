@@ -14,12 +14,13 @@ import Recharge from "./recharge/Recharge";
 import Transaction from "./transaction/Transaction";
 import Transfer from "./transfer/Transfer";
 import Withdraw from "./withdraw/Withdraw";
-import RechargeHistory from './recharge-history/RechargeHistory'
+import RechargeHistory from "./recharge-history/RechargeHistory";
 import Refer from "./refer/Refer";
-
+import Welcome from "./welcome/Welcome";
 
 export {
   Home,
+  Welcome,
   Signin,
   ForgotPass,
   Signup,
@@ -36,5 +37,5 @@ export {
   Bank,
   AddBank,
   RechargeHistory,
-  Refer
+  Refer,
 };

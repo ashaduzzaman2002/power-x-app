@@ -179,6 +179,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
   margin-top: 1rem;
+  z-index: 2;
 }
 
 .prity-colors div {
@@ -544,6 +545,29 @@ input:focus {
 
 .single-entry {
   text-align: center;
-  border: 1px solid rgba(0, 255, 255, 0.239);
-  background: #1bb9c134;
+  background-image: url('../../assets/images/Love.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -1rem;
+  top: 0rem;
+  width: 180px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;z-index: 1;
+}
+
+
+.single-entry p {
+  color: #e14738;
+  width: 100px;
+}
+
+
+
+.power-x {
+  border: 2px solid red;
+  margin-top: 1.5rem;
 }

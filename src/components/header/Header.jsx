@@ -11,7 +11,7 @@ const Header = ({ title, path }) => {
         <div className="top__nav__cols">
           <div
             className="top__nav__back__btn"
-            onClick={() => navigate(path || "/")}
+            onClick={() => navigate(path || "/home")}
           >
             <svg
               stroke="currentColor"

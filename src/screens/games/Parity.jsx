@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./game.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { goldCoin, silverCoin } from "../../assets";
 import { Header } from "../../components";
 
 const Parity = () => {
@@ -15,7 +14,7 @@ const Parity = () => {
   
     return (
       <div className="container">
-        <Header title={"Parity"} />
+        <Header title={"10 Ka Dum"} />
   
   {/* Start */}
         <div
