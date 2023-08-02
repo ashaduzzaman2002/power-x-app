@@ -14,7 +14,7 @@ const IsNotAuthenticate = ({ children }) => {
         }
 
         console.log(loading)
-    }, [user])
+    }, [user, location?.state?.path, loading, navigate])
 
     if (loading) {
         return <div className='d-flex justify-content-center align-items-center' style={{ height: '90vh' }}>

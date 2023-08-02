@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./game.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components";
 
 const Parity = () => {
@@ -303,7 +303,7 @@ const Parity = () => {
     );
   };
   
-  function ContinuousTab({}) {
+  function ContinuousTab() {
     const fastParityContinuousList = [
       0,
       7,
@@ -367,7 +367,7 @@ const Parity = () => {
     );
   }
   
-  const Record = ({}) => {
+  const Record = () => {
     const numberList = [
       2,
       2,

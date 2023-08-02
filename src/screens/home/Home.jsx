@@ -19,11 +19,11 @@ const Home = () => {
 
           <div  className="games">
             <div onClick={() => navigate('/fast-parity')} className="game">
-              <img src={powerx} alt="" />
+              <img src={powerx} alt="power x" />
             </div>
 
             <div onClick={() => navigate('/parity')} className="game">
-              <img src={daskadum} />
+              <img src={daskadum} alt="das ka dum" />
             </div>
           </div>
         </div>
