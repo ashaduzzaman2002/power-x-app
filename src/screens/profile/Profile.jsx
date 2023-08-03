@@ -8,6 +8,7 @@ import { dbObject } from "../../helper/constant";
 import { toast } from "react-toastify";
 import { toastOptions } from '../../components/toaster/Toaster'
 import IsAuthenticate from "../../redirect/IsAuthenticate";
+import { profile } from "../../assets";
 
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
@@ -56,19 +57,18 @@ const Profile = () => {
         <div className="user__details__section">
           <div className="user__pic">
             <img
-              src="data:image/png;base64,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"
+              src={profile}
               height="100%"
               alt=""
             />
           </div>
           <div className="user__details__section__right">
             <div className="user__details__section__right__col">
-              <b>ID: 0QLSRILB</b>
+              <b>ID: {user?.referCode}</b>
             </div>
             <div className="user__details__section__right__col">
-              Phone: 7256820024
+              Phone: {user?.phone}
             </div>
-            <div className="user__details__section__right__col">Name: </div>
           </div>
         </div>
 

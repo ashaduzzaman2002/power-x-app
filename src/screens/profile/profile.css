@@ -1,11 +1,10 @@
 
 
 .user__details__section {
-    padding: 30px 5%;
+    padding: 30px 1%;
     display: flex;
     align-items: center;
     margin-top: 3px;
-    /* background: #2a486354; */
 }
 
 .user__pic {

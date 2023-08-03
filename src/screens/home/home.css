@@ -4,8 +4,6 @@
   left: 0;
   bottom: 0;
   top: 0;
-  /* background: rgb(8, 34, 78); */
-  /* background-image: url('../../assets/images/Wallpaper.png'); */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.778)), url('../../assets/images/Wallpaper.png');
   backdrop-filter: blur(10px);
   background-position: center;

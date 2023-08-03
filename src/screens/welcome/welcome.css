@@ -1,9 +1,5 @@
 .welcome-custom {
     height: 100vh;
-    /* background: url('../../assets/images/new.png');
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat; */
     display: flex;
     align-items: center;
     justify-content: center;

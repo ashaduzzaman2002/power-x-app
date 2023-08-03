@@ -9,6 +9,7 @@ import powerx from './images/power-x.png'
 import daskadum from './images/10kadum.jpeg'
 import welcomeBg from './images/new.png'
 import lazyWelcome from './images/lazy-welcome.png'
+import profile from './images/profile.png'
 
 export {
     rocket,
@@ -21,5 +22,6 @@ export {
     powerx,
     daskadum,
     welcomeBg,
-    lazyWelcome
+    lazyWelcome,
+    profile
 }
