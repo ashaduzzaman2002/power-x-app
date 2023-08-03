@@ -5,7 +5,7 @@ import { Header } from "../../components";
 
 const Parity = () => {
     const navigate = useNavigate();
-    const firstCardList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    const firstCardList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const [activeBtn, setActiveBtn] = useState("probability");
     const [activeBtn2, setActiveBtn2] = useState("OtherPlayers");
     const probabilityBox = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -180,7 +180,7 @@ const Parity = () => {
           </div>
   
   
-          <div className="paritynum-btns mt-4" style={{gridTemplateColumns: 'repeat(6, 1fr)'}}>
+          <div className="paritynum-btns mt-4" style={{gridTemplateColumns: 'repeat(5, 1fr)'}}>
             {firstCardList.map((item, i) => (
               <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
                 <p className="m-0">{item}</p>

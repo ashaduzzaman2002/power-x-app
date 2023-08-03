@@ -1,12 +1,23 @@
 .welcome-custom {
     height: 100vh;
-    background: url('../../assets/images/new.png');
+    /* background: url('../../assets/images/new.png');
     background-position: top;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.welcome-custom img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .play-now {
@@ -17,4 +28,5 @@
     background-color: #fff;
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
+    position: relative;
 }
