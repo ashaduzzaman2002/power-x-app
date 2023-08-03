@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Header } from '../../components';
+import './transfer.css'
 
 const Transfer = () => {
     const location = useLocation();

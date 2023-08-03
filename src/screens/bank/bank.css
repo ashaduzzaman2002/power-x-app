@@ -28,11 +28,9 @@
   bottom: 6rem;
   right: 0.5rem;
   border: none;
-  background: linear-gradient(
-    to right bottom,
-    rgb(255, 185, 9),
-    rgb(254, 64, 45)
-  );
+  background: linear-gradient(to right bottom,
+      rgb(255, 185, 9),
+      rgb(254, 64, 45));
   padding: 0.1rem 1.2rem;
   border-radius: 1rem;
   font-weight: 500;
@@ -123,7 +121,7 @@
 }
 
 .up-input-outer input {
-  padding: 1rem ;
+  padding: 1rem;
   background-color: #364049;
   border: none;
   border-radius: 10px;
@@ -141,9 +139,53 @@
 
 @media screen and (max-width: 520px) {
   .up-input-outer input {
-      padding: 0.8rem ;
+    padding: 0.8rem;
   }
+
   .up-input-outer label {
-      font-size: 16px;
-    }
+    font-size: 16px;
+  }
+}
+
+
+.floating-btn {
+  width: 55px;
+  aspect-ratio: 1/1;
+  background: #fec007;
+  box-shadow: 0 10px 20px -10px #fec007;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  bottom: 15%;
+  right: 2.5rem;
+}
+
+.floating-btn button {
+  background: none;
+  border: none;
+}
+
+.floating-btn button:focus {
+  outline: none;
+}
+
+.floating-btn:active {
+  scale: 1.2;
+  outline: none !important;
+}
+
+.floating-btn button i {
+  font-size: 2.5rem;
+  color: #f5f5f5;
+}
+
+.withdraw__btn {
+  height: 40px;
+  border-radius: 5px;
+  color: #fff;
+  border: 0;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  background: rgb(252, 148, 13);
 }

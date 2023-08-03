@@ -80,6 +80,54 @@
   font-weight: 500;
 }
 
+.parity-myorder-header td {
+  color: #f1b81a;
+  font-weight: 500;
+}
+
+.parity-myorder {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.parity-myorder td:first-child {
+  text-align: left;
+}
+
+.parity-myorder td:last-child {
+  text-align: right;
+}
+
+.parity-myorder-header td {
+  color: #f1b81a;
+  font-weight: 500;
+}
+
+.parity-selected {
+  display: flex;
+  justify-content: center;
+}
+
+.parity-selected p {
+  background-color: #e8f3d5;
+  width: 50%;
+  color: #000;
+  font-size: 14px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parity-result p {
+  width: 38%;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: #e14738;
+  color: #fff;
+}
+
 
 @media screen and (max-width: 370px) {
   .parity-myorder td:last-child {

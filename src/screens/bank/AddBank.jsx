@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import { useFormik } from "formik";
 import { bankValidation } from "../../validation/auth";
+import './bank.css'
 
 const initialValues = {
   bank_name: "",
