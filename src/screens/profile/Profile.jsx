@@ -59,7 +59,8 @@ const Profile = () => {
             <img
               src={profile}
               height="100%"
-              alt=""
+              alt="profile"
+              loading='lazy'
             />
           </div>
           <div className="user__details__section__right">
