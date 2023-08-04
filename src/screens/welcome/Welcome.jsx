@@ -1,8 +1,7 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import './welcome.css'
 import { Link } from 'react-router-dom'
-import { lazyWelcome, welcomeBg } from '../../assets'
-// const welcomebg = lazy(() => import('../../assets/images/new.png'))
+import { welcomeBg } from '../../assets'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Welcome = () => {

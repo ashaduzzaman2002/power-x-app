@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "../../components";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./withdraw.css";
 
 const Withdraw = () => {

@@ -21,6 +21,7 @@ const AppProvider = ({ children }) => {
       console.log(error);
     }
   };
+  
 
   useEffect(() => {
     getData();

@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { dbObject } from '../../helper/constant';
 import './rechargehistory.css';
 import { upi } from '../../assets';
 import { Header } from '../../components';

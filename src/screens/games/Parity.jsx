@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./game.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components";
+import {database} from '../../firebase.config'
+import { onValue, ref, set } from 'firebase/database';
 
 const Parity = () => {
     const navigate = useNavigate();
@@ -9,8 +11,40 @@ const Parity = () => {
     const [activeBtn, setActiveBtn] = useState("probability");
     const [activeBtn2, setActiveBtn2] = useState("OtherPlayers");
     const probabilityBox = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [timer, setTimer] = useState('0:00');
+  const [period, setPeroid] = useState('000000000000')
   
     const location = useLocation();
+
+    function secondsToTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      
+      const formattedMinutes = String(minutes).padStart(2, '0');
+      const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+      
+      return `${formattedMinutes}:${formattedSeconds}`;
+    }
+
+    useEffect(() => {
+      const dusKaDamRef = ref(database, 'dus-ka-dum/timer');
+  
+      try {
+        onValue(dusKaDamRef, (snapshot) => {
+          const data = snapshot.val();
+          console.log(data)
+          if (data) {
+            const key = Object.keys(data)[0];
+            const { time, period } = data[key];
+            setPeroid(period)
+            setTimer(secondsToTime(time));
+          }
+        });
+      } catch (error) {
+        console.log(error)
+      }
+    }, []);
+
   
     return (
       <div className="container">
@@ -168,13 +202,13 @@ const Parity = () => {
           <div className="parity-top mt-4 px-4 py-2">
             <div className="parity-period">
               <p>5 Minute</p>
-              <p>20230614012</p>
+              <p>{period}</p>
             </div>
   
             <div className="parity-count">
               <p className="m-0 mt-1">Count Down</p>
               <div className="parity-count-box p-2 ">
-                <p className="m-0">3:00</p>
+                <p className="m-0">{timer}</p>
               </div>
             </div>
           </div>
