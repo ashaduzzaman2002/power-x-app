@@ -49,7 +49,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPass />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/fast-parity" element={<FastParity />} />
+          <Route path="/power-x" element={<FastParity />} />
           <Route path="/parity" element={<Parity />} />
           <Route path="/forward" element={<Forward />} />
           <Route path="/follow-us" element={<FollowUs />} />

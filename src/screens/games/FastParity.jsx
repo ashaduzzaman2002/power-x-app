@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./game.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "../../components";
 import IsAuthenticate from "../../redirect/IsAuthenticate";
-import {database} from '../../firebase.config'
+import { database } from '../../firebase.config'
 import { onValue, ref, set } from 'firebase/database';
+import { dbObject } from "../../helper/constant";
 
 const FastParity = () => {
   const navigate = useNavigate();
@@ -14,16 +15,18 @@ const FastParity = () => {
   const probabilityBox = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [timer, setTimer] = useState('0:00');
   const [period, setPeroid] = useState('000000000000')
+  const [winWallet, setWinWallet] = useState('0.00')
+  const [playWallet, setPlayWallet] = useState('0.00')
 
   const location = useLocation();
 
   function secondsToTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    
+
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-    
+
     return `${formattedMinutes}:${formattedSeconds}`;
   }
 
@@ -46,10 +49,30 @@ const FastParity = () => {
     }
   }, []);
 
+  const getWallet = async () => {
+    try {
+      const { data } = await dbObject('/power-x/fetch-wallet.php')
+      console.log(data)
+
+      if (!data.error) {
+        setWinWallet(data?.response.winWallet)
+        setPlayWallet(data?.response.playWallet)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getWallet()
+  }, [])
+
   return (
-    <IsAuthenticate path='/fast-parity'>
+    <IsAuthenticate path='/power-x'>
       <div className="container">
         <Header title={"Power X"} />
+
+        {/* <h1>{hello}</h1> */}
 
         {/* Start */}
         <div
@@ -138,7 +161,7 @@ const FastParity = () => {
           <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
             <div className="parity-top flex-column align-items-center w-100 p-2 ">
               <p className="mb-1">Win Wallet</p>
-              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
+              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹{winWallet}</p>
 
               <button
                 className="btn text-white rounded-pill w-100 fw-medium"
@@ -170,7 +193,7 @@ const FastParity = () => {
 
             <div className="parity-top flex-column align-items-center w-100 p-2">
               <p className="mb-1">Play Wallet</p>
-              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹500.00</p>
+              <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹{playWallet}</p>
 
               <button
                 className="btn text-white rounded-pill w-100 fw-medium"
@@ -215,63 +238,63 @@ const FastParity = () => {
           </div>
 
           <div className="power-x p-2 position-relative">
-          <div className="game-coins position-relative">
-            <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <p className="mb-0 pt-3 text-center">GOLD</p>
-              <p className="border-top w-75 text-center mx-auto">2X</p>
-            </div>
-
-            <div className="d-flex flex-column justify-content-center align-items-center silver-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <p className="mb-0 pt-3 text-center">SILVER</p>
-
-              <p className="border-top  w-75 text-center mx-auto">2X</p>
-            </div>
-
-            
-          </div>
-
-          <div className="prity-colors position-relative">
-            <div
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              className="p-3"
-              style={{ backgroundColor: "#d72e2a" }}
-            >
-              <p className="m-0">Red</p>
-              <p className="m-0 border-top w-75 text-center">2X</p>
-            </div>
-
-            <div
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              style={{ backgroundColor: "#388e3d" }}
-            >
-              <p className="m-0">green</p>
-              <p className="m-0 border-top w-75 text-center">3X</p>
-            </div>
-
-            <div
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              style={{ backgroundColor: "#1976d3" }}
-            >
-              <p className="m-0">Blue</p>
-              <p className="m-0 border-top w-75 text-center">4X</p>
-            </div>
-
-            
-          </div>
-
-          <div className="paritynum-btns position-relative">
-            {firstCardList.map((item, i) => (
-              <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
-                <p className="m-0">{item}</p>
-                <p className="m-0 border-top w-50 text-center">{2 + i}X</p>
+            <div className="game-coins position-relative">
+              <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <p className="mb-0 pt-3 text-center">GOLD</p>
+                <p className="border-top w-75 text-center mx-auto">2X</p>
               </div>
-            ))}
-          </div>
-          <div
-            className="single-entry"
+
+              <div className="d-flex flex-column justify-content-center align-items-center silver-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <p className="mb-0 pt-3 text-center">SILVER</p>
+
+                <p className="border-top  w-75 text-center mx-auto">2X</p>
+              </div>
+
+
+            </div>
+
+            <div className="prity-colors position-relative">
+              <div
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                className="p-3"
+                style={{ backgroundColor: "#d72e2a" }}
+              >
+                <p className="m-0">Red</p>
+                <p className="m-0 border-top w-75 text-center">2X</p>
+              </div>
+
+              <div
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                style={{ backgroundColor: "#388e3d" }}
+              >
+                <p className="m-0">green</p>
+                <p className="m-0 border-top w-75 text-center">3X</p>
+              </div>
+
+              <div
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                style={{ backgroundColor: "#1976d3" }}
+              >
+                <p className="m-0">Blue</p>
+                <p className="m-0 border-top w-75 text-center">4X</p>
+              </div>
+
+
+            </div>
+
+            <div className="paritynum-btns position-relative">
+              {firstCardList.map((item, i) => (
+                <div data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
+                  <p className="m-0">{item}</p>
+                  <p className="m-0 border-top w-50 text-center">{2 + i}X</p>
+                </div>
+              ))}
+            </div>
+            <div
+              className="single-entry"
             >
               <p className="mb-0">Single entry option</p>
             </div>
