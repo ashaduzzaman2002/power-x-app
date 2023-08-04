@@ -6,6 +6,8 @@ import IsAuthenticate from "../../redirect/IsAuthenticate";
 import { database } from '../../firebase.config'
 import { onValue, ref, set } from 'firebase/database';
 import { dbObject } from "../../helper/constant";
+import Keyboard from "../../components/keyboard/Keyboard";
+import { Rupee } from "../../assets/svg/CustomSVG";
 
 const FastParity = () => {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ const FastParity = () => {
   const [period, setPeroid] = useState('000000000000')
   const [winWallet, setWinWallet] = useState('0.00')
   const [playWallet, setPlayWallet] = useState('0.00')
+  const [amount, setAmount] = useState('')
 
   const location = useLocation();
 
@@ -76,84 +79,59 @@ const FastParity = () => {
 
         {/* Start */}
         <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-          style={{ backdropFilter: "blur(2px)" }}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content start-box">
-              <h2 className="game-name">Gold</h2>
-              <p>Points</p>
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        style={{ backdropFilter: "blur(2px)" }}
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content start-box">
+            <h2 className="game-name">Gold</h2>
+            <p>Points</p>
 
-              <div className="points-div">
-                <h3>INR 0.0</h3>
-                <button onClick={() => navigate("/recharge")}>
-                  <i className="fa-solid fa-clock-rotate-left"></i> Recharge
-                </button>
-              </div>
+            <div className="points-div">
+              <h3>INR 0.0</h3>
+              <button onClick={() => navigate("/recharge")}>
+                <i className="fa-solid fa-clock-rotate-left"></i> Recharge
+              </button>
+            </div>
 
-              <div className="contract-point">
-                <p>Contract Points</p>
+            <div className="contract-point">
+              <p>Contract Amount</p>
 
-                <div>
-                  <button>10</button>
-                  <button>100</button>
-                  <button className={"contract-point-selected"}>1000</button>
-                  <button>10000</button>
-                </div>
-              </div>
-
-              <div className="start-number-outer">
-                <p>Number</p>
-
-                <div className="start-number">
-                  <div>
-                    <button>-5</button>
-                    <button>-1</button>
-                  </div>
-                  <p>1000</p>
-                  <div>
-                    <button>+1</button>
-                    <button>+5</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="delivery">
-                <div>
-                  <p>Delivery</p>
-                  <p>50.00</p>
+              <div className="withdrawal__input__field " style={{backgroundColor: '#e5e5e5'}}>
+                <div className="withdrawal__input__field__icon">
+                  <Rupee />
                 </div>
 
-                <div>
-                  <p>Fee</p>
-                  <p>0.00</p>
-                </div>
-
-                <div>
-                  <p>Amount</p>
-                  <p>+176.00</p>
-                </div>
+                <div className="w-100 input" style={{fontWeight: '700', fontSize: '1.5rem'}}>{amount}</div>
               </div>
+            </div>
 
-              <div className="w-100 mt-4">
-                <button
-                  style={{
-                    backgroundColor: 'rgb(252, 148, 13)'
-                  }}
-                  className="btn w-100 text-light py-2"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  Start
-                </button>
-              </div>
+            <div className="withdrawal__input__notes d-flex justify-content-between" >
+              <p className="mb-0 mt-2">Service charge 10%</p>
+              <p className="mb-0 mt-2">Delivery 50.00</p>
+            </div>
+
+            <Keyboard amount={amount} setAmount={setAmount} />
+
+            <div className="mt-4 mb-3 d-flex justify-content-center">
+              <button
+                style={{
+                  backgroundColor: 'rgb(252, 148, 13)'
+                }}
+                className="btn text-light py-3 modal-btn w-25"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Yes
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
         <div>
 
@@ -293,10 +271,13 @@ const FastParity = () => {
                 </div>
               ))}
             </div>
+            
             <div
               className="single-entry"
             >
-              <p className="mb-0">Single entry option</p>
+              <p className="mb-0">Single</p>
+              <p className="mb-0">Entry</p>
+              <p className="mb-0">Option</p>
             </div>
           </div>
 

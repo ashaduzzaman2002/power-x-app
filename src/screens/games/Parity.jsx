@@ -5,6 +5,8 @@ import { Header } from "../../components";
 import { database } from '../../firebase.config'
 import { onValue, ref, set } from 'firebase/database';
 import { dbObject } from "../../helper/constant";
+import { Rupee } from "../../assets/svg/CustomSVG";
+import Keyboard from "../../components/keyboard/Keyboard";
 
 const Parity = () => {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ const Parity = () => {
   const [period, setPeroid] = useState('000000000000')
   const [winWallet, setWinWallet] = useState('0.00')
   const [playWallet, setPlayWallet] = useState('0.00')
+  const [amount, setAmount] = useState('')
 
   const location = useLocation();
 
@@ -93,59 +96,34 @@ const Parity = () => {
             </div>
 
             <div className="contract-point">
-              <p>Contract Points</p>
+              <p>Contract Amount</p>
 
-              <div>
-                <button>10</button>
-                <button>100</button>
-                <button className={"contract-point-selected"}>1000</button>
-                <button>10000</button>
-              </div>
-            </div>
-
-            <div className="start-number-outer">
-              <p>Number</p>
-
-              <div className="start-number">
-                <div>
-                  <button>-5</button>
-                  <button>-1</button>
+              <div className="withdrawal__input__field " style={{backgroundColor: '#e5e5e5'}}>
+                <div className="withdrawal__input__field__icon">
+                  <Rupee />
                 </div>
-                <p>1000</p>
-                <div>
-                  <button>+1</button>
-                  <button>+5</button>
-                </div>
+
+                <div className="w-100 input" style={{fontWeight: '700', fontSize: '1.5rem'}}>{amount}</div>
               </div>
             </div>
 
-            <div className="delivery">
-              <div>
-                <p>Delivery</p>
-                <p>50.00</p>
-              </div>
-
-              <div>
-                <p>Fee</p>
-                <p>0.00</p>
-              </div>
-
-              <div>
-                <p>Amount</p>
-                <p>+176.00</p>
-              </div>
+            <div className="withdrawal__input__notes d-flex justify-content-between" >
+              <p className="mb-0 mt-2">Service charge 10%</p>
+              <p className="mb-0 mt-2">Delivery 50.00</p>
             </div>
 
-            <div className="w-100 mt-4">
+            <Keyboard amount={amount} setAmount={setAmount} />
+
+            <div className="mt-4 mb-3 d-flex justify-content-center">
               <button
                 style={{
                   backgroundColor: 'rgb(252, 148, 13)'
                 }}
-                className="btn w-100 text-light py-2"
+                className="btn text-light py-3 modal-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                Start
+                Yes
               </button>
             </div>
           </div>

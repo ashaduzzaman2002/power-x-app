@@ -32,8 +32,9 @@
 
 .nav-link span {
   font-size: 14px;
-  margin-left: 7px;
+  /* margin-left: 7px; */
   font-weight: 400;
+  margin-top: -8px;
 }
 
 

@@ -54,7 +54,7 @@
     font-size: 22px;
   }
   
-  .withdrawal__amount__field input {
+  .withdrawal__amount__field .input {
     flex-basis: calc(100% - 65px);
     height: 100%;
     width: 100%;
@@ -67,6 +67,8 @@
     letter-spacing: 0.5px;
     font-size: 22px;
     color: #eaeaff;
+    display: flex;
+    align-items: center;
   }
 
   .withdraw__btn {
@@ -136,4 +138,10 @@
   font-family: sans-serif;
   font-size: 13px;
   color: #666;
+}
+
+.withdrawal__input__notes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
 }

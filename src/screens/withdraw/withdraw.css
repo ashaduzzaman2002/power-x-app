@@ -109,7 +109,7 @@
   font-size: 22px;
 }
 
-.withdrawal__amount__field input {
+.withdrawal__amount__field .input {
   flex-basis: calc(100% - 65px);
   height: 100%;
   width: 100%;
@@ -122,10 +122,8 @@
   letter-spacing: 0.5px;
   font-size: 22px;
   color: #eaeaff;
-}
-
-.withdrawal__amount__field input::placeholder {
-  color: #9f9fa3;
+  display: flex;
+  align-items: center;
 }
 
 .withdrawal__input__notes {
@@ -134,10 +132,6 @@
   margin-top: 5px;
 }
 
-.withdrawal__input__notes__left {
-  font-size: 14px;
-  color: #dcd8d8;
-}
 
 .withdraw__btn {
   height: 40px;
