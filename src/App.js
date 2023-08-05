@@ -1,6 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import About from "./screens/about/About";
+import Faq from "./screens/faq/Faq";
 const Welcome = lazy(() => import("./screens/welcome/Welcome"));
 const Home = lazy(() => import("./screens/home/Home"));
 const FastParity = lazy(() => import("./screens/games/FastParity"));
@@ -62,6 +64,8 @@ function App() {
           <Route path="/bank" element={<Bank />} />
           <Route path="/add-bank" element={<AddBank />} />
           <Route path="/refer" element={<Refer />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </Suspense>
     </>

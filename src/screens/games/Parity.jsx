@@ -99,7 +99,7 @@ const Parity = () => {
               <p>Contract Amount</p>
 
               <div className="withdrawal__input__field " style={{backgroundColor: '#e5e5e5'}}>
-                <div className="withdrawal__input__field__icon">
+                <div className="withdrawal__input__field__icon custon-ruppe">
                   <Rupee />
                 </div>
 

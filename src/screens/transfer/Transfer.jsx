@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { Header } from '../../components';
 import './transfer.css'
@@ -9,20 +9,12 @@ const Transfer = () => {
     const location = useLocation();
     const [amount, setAmount] = useState('');
     const [error, setError] = useState(true);
+    const [bonusAmount, setBonusAmount] = useState('0.00')
+    const [bonus, setBonus] = useState('10')
 
-    const handleChange = (e) => {
-      const { value } = e.target;
-  
-      const input = Number(value);
-      console.log(typeof value);
-  
-      if (input && typeof Number(input) == "number" && input >= 100) {
-        setError(false);
-      } else {
-        setError(true);
-      }
-      setAmount(value);
-    };
+    useEffect(() => {
+      setBonusAmount(Number(amount) * Number(bonus) / 100)
+    }, [amount])
 
   return (
     <div className="container">
@@ -42,26 +34,20 @@ const Transfer = () => {
 
       <div className="withdrawal__amount__field">
         <div className="withdrawal__field__header">
-          Transfer Amount{" "}
-          <span style={{ fontSize: 12, fontWeight: "300" }}></span>
+          Transfer to Play Wallet{" "}
+           <br />
+          <span style={{ fontSize: 12, fontWeight: "300" }}>Min Rs. 10 & thereafter multiple of Rs. 10</span>
         </div>
         <div className="withdrawal__input__field">
           <div className="withdrawal__input__field__icon">
             <Rupee />
           </div>
-          {/* <input
-            type="number"
-            name=""
-            id=""
-            value={amount}
-            onChange={handleChange}
-          /> */}
 
           <div className='w-100 input'>{amount}</div>
         </div>
 
         <div className="withdrawal__input__notes">
-          <p className="mb-0 mt-2">Service charge 10%</p>
+          <p className="mb-0 mt-2">Bonus {bonus}% = ₹{bonusAmount}</p>
         </div>
         
         
