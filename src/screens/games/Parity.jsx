@@ -189,7 +189,7 @@ const Parity = () => {
                 fontSize: 13,
               }}
               onClick={() =>
-                navigate("/forward", { state: { from: location.pathname } })
+                navigate("/dus-ka-dum/forward", { state: { from: location.pathname } })
               }
             >
               Forward

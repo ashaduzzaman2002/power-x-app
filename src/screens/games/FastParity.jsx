@@ -20,6 +20,9 @@ const FastParity = () => {
   const [winWallet, setWinWallet] = useState('0.00')
   const [playWallet, setPlayWallet] = useState('0.00')
   const [amount, setAmount] = useState('')
+  const [coin, setCoin] = useState()
+  const [color, setColor] = useState()
+  const [alphabet, setAlphabet] = useState()
 
   const location = useLocation();
 
@@ -70,73 +73,104 @@ const FastParity = () => {
     getWallet()
   }, [])
 
+  const placeBit = async () => {
+    try {
+
+      const values = {
+        period,
+        coin,
+        color,
+        alphabet,
+        points: amount
+      }
+
+      const formData = new FormData();
+      for (const key in values) {
+        formData.append(key, values[key]);
+      }
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Set the content type to form data
+        },
+      };
+
+      const { data } = await dbObject.post('/power-x/place-bid.php', formData, config)
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <IsAuthenticate path='/power-x'>
       <div className="container">
         <Header title={"Power X"} />
 
-        {/* <h1>{hello}</h1> */}
-
         {/* Start */}
         <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-        style={{ backdropFilter: "blur(2px)" }}
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content start-box">
-            <h2 className="game-name">Gold</h2>
-            <p>Points</p>
-
-            <div className="points-div">
-              <h3>INR 0.0</h3>
-              <button onClick={() => navigate("/recharge")}>
-                <i className="fa-solid fa-clock-rotate-left"></i> Recharge
-              </button>
-            </div>
-
-            <div className="contract-point">
-              <p>Contract Amount</p>
-
-              <div className="withdrawal__input__field " style={{backgroundColor: '#e5e5e5'}}>
-                <div className="withdrawal__input__field__icon">
-                  <Rupee />
-                </div>
-
-                <div className="w-100 input" style={{fontWeight: '700', fontSize: '1.5rem'}}>{amount}</div>
+          className="modal fade start-box-outer"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog m-0 modal-dialog-centered">
+            <div className="modal-content start-box">
+              <div className="modal-header p-2 mb-3">
+                <button data-bs-toggle="modal"
+                  data-bs-target="#exampleModal" className="ms-auto close-btn" ><i class="bi bi-x-lg"></i></button>
               </div>
-            </div>
+              <h2 className="game-name">{coin || alphabet || color}</h2>
+              <p className="mb-0">Points</p>
 
-            <div className="withdrawal__input__notes d-flex justify-content-between" >
-              <p className="mb-0 mt-2">Service charge 10%</p>
-              <p className="mb-0 mt-2">Delivery 50.00</p>
-            </div>
+              <div className="points-div">
+                <h3 className="mb-0">INR 0.0</h3>
+                <button onClick={() => navigate("/recharge")}>
+                  <i className="fa-solid fa-clock-rotate-left"></i> Recharge
+                </button>
+              </div>
 
-            <Keyboard amount={amount} setAmount={setAmount} />
+              <div className="contract-point">
+                <p>Contract Amount</p>
 
-            <div className="mt-4 mb-3 d-flex justify-content-center">
-              <button
-                style={{
-                  backgroundColor: 'rgb(252, 148, 13)'
-                }}
-                className="btn text-light py-3 modal-btn w-25"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                Yes
-              </button>
+                <div className="withdrawal__input__field justify-content-start px-3" style={{ backgroundColor: '#e5e5e5' }}>
+                  <div className="withdrawal__input__field__icon justify-content-start text-dark">
+                    <Rupee />
+                  </div>
+
+                  <div className="input pe-3" style={{ fontWeight: '700', fontSize: '1.5rem' }}>{amount}</div>
+                </div>
+              </div>
+
+              <div className="withdrawal__input__notes d-flex justify-content-between" >
+                <p className="mb-0 mt-2">Service charge 10%</p>
+                <p className="mb-0 mt-2">Delivery 50.00</p>
+              </div>
+
+              <Keyboard amount={amount} setAmount={setAmount} />
+
+              <div className="mb-3 d-flex justify-content-center">
+                <button
+                  style={{
+                    backgroundColor: 'rgb(252, 148, 13)'
+                  }}
+
+                  onClick={placeBit}
+                  className="btn text-light py-3 modal-btn w-25"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Yes
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
         <div>
 
           {/* Wallet */}
-          <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3">
+          <div className="wallet-container d-flex justify-content-between align-items-center gap-2 mt-3 mb-4">
             <div className="parity-top flex-column align-items-center w-100 p-2 ">
               <p className="mb-1">Win Wallet</p>
               <p style={{ fontSize: "1.5rem", fontWeight: "500" }}>₹{winWallet}</p>
@@ -193,7 +227,7 @@ const FastParity = () => {
                   fontSize: 13,
                 }}
                 onClick={() =>
-                  navigate("/forward", { state: { from: location.pathname } })
+                  navigate("/power-x/forward", { state: { from: location.pathname } })
                 }
               >
                 Forward
@@ -217,7 +251,7 @@ const FastParity = () => {
 
           <div className="power-x p-2 position-relative">
             <div className="game-coins position-relative">
-              <div className="d-flex flex-column gold-coin" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <div className="d-flex flex-column gold-coin" onClick={() => { setCoin('Gold'); setColor(null); setAlphabet(null) }} data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <p className="mb-0 pt-3 text-center">GOLD</p>
                 <p className="border-top w-75 text-center mx-auto">2X</p>
               </div>
@@ -271,7 +305,7 @@ const FastParity = () => {
                 </div>
               ))}
             </div>
-            
+
             <div
               className="single-entry"
             >
@@ -282,7 +316,7 @@ const FastParity = () => {
           </div>
 
 
-          <div className="parity-btn">
+          {/* <div className="parity-btn">
             <button
               onClick={() => setActiveBtn("continuos")}
               className={activeBtn === "continuos" ? "parity-btn-active" : ""}
@@ -309,7 +343,7 @@ const FastParity = () => {
 
           {activeBtn === "probability" && (
             <Probability probabilityBox={probabilityBox} />
-          )}
+          )} */}
 
           <div className="gameDetails-btn-group">
             <button
@@ -332,23 +366,23 @@ const FastParity = () => {
           {activeBtn2 === "OtherPlayers" ? (
             <div className="gameDetails-others">
               <div>
-                <p>Period</p>
-                <small>18:54</small>
+                <p className="mb-0">Period</p>
+                <small className="mb-0">18:54</small>
               </div>
 
               <div style={{ textAlign: "center" }}>
-                <p>User</p>
-                <small>****18787</small>
+                <p className="mb-0">User</p>
+                <small className="mb-0">****18787</small>
               </div>
 
               <div style={{ textAlign: "center" }}>
-                <p>Select</p>
-                <small>2x2</small>
+                <p className="mb-0">Select</p>
+                <small className="mb-0">2x2</small>
               </div>
 
               <div style={{ textAlign: "right" }}>
-                <p>Point</p>
-                <small>₹ 90</small>
+                <p className="mb-0">Point</p>
+                <small className="mb-0">₹ 90</small>
               </div>
             </div>
           ) : (

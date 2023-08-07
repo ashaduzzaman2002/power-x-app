@@ -10,6 +10,8 @@ const Parity = lazy(() => import("./screens/games/Parity"));
 const FollowUs = lazy(() => import("./screens/follow-us/FollowUs"));
 const ForgotPass = lazy(() => import("./screens/auth/ForgotPass"));
 const Forward = lazy(() => import("./screens/forward/Forward"));
+const ForwardPX = lazy(() => import("./screens/forward/ForwardPX"));
+const ForwardDKD = lazy(() => import("./screens/forward/ForwardDKD"));
 const Profile = lazy(() => import("./screens/profile/Profile"));
 const Transaction = lazy(() => import("./screens/transaction/Transaction"));
 const Signin = lazy(() => import("./screens/auth/Signin"));
@@ -53,6 +55,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/power-x" element={<FastParity />} />
           <Route path="/parity" element={<Parity />} />
+          <Route path="/forward" element={<Forward />} />
+          <Route path="/power-x/forward" element={<ForwardPX />} />
+          <Route path="/dus-ka-dum/forward" element={<ForwardDKD />} />
           <Route path="/forward" element={<Forward />} />
           <Route path="/follow-us" element={<FollowUs />} />
           <Route path="/transaction" element={<Transaction />} />

@@ -25,7 +25,7 @@ const About = () => {
     return (
         <div className='container'>
             <Header title={'About Us'} path={'/profile'} />
-            {about}
+            <div className="content" dangerouslySetInnerHTML={{__html: about}}></div>
         </div>
     )
 }
