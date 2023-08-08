@@ -314,7 +314,7 @@ const Parity = () => {
             {firstCardList.map((item, i) => (
               <div className="position-relative item mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal" key={i}>
                 <p className="m-0">{item}</p>
-                <div className="dus-ka-dum-flag">{i % 2 === 0? '₹500': null}</div>
+                <span className="dus-ka-dum-flag">{i % 2 === 0? '₹500': null}</span>
               </div>
             ))}
           </div>

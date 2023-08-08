@@ -226,11 +226,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 0.8rem;
   margin-top: 1rem;
-  background-color: #4189b1;
 }
 
-.paritynum-btns .item {
-  background-color: #d8e499;
+.paritynum-btns div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,10 +238,24 @@
   aspect-ratio: 1/1;
 }
 
+.dus-ka-dum .paritynum-btns {
+  background-color: #4189b1;
+}
+
+.dus-ka-dum .paritynum-btns .item {
+  background-color: #ebf0b9;
+}
+
 .paritynum-btns p {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.dus-ka-dum .paritynum-btns .item p {
   font-size: 1.5rem;
-  color: #fb0103;
+  color:#ff0206;
   font-weight: 800;
+  text-align: center;
 }
 
 .parity-btn {
