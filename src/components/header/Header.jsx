@@ -2,18 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
 
-const Header = ({ title, path }) => {
+const Header = ({ title, path, backgroundColor }) => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div >
       {/* Top Navbar */}
-      <div className="app__top__nav">
+      <div className={`app__top__nav ${backgroundColor && "border-bottom"}`} style={{ backgroundColor }}>
         <div className="top__nav__cols">
           <div
             className="top__nav__back__btn"
             onClick={() => navigate(path || "/home")}
           >
             <svg
+              style={{ color: backgroundColor ? '#000' : null }}
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -26,9 +27,9 @@ const Header = ({ title, path }) => {
             </svg>
           </div>
         </div>
-        <div className="top__nav__cols" style={{flexBasis: '50%'}}>
+        <div className="top__nav__cols" style={{ flexBasis: '50%' }}>
           <center>
-            <div className="top__nav__title">{title}</div>
+            <div className="top__nav__title" style={{ color: backgroundColor ? '#000' : null }}>{title}</div>
           </center>
         </div>
         <div className="top__nav__cols"></div>
